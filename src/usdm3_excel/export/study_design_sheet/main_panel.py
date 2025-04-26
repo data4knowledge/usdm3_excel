@@ -1,7 +1,7 @@
 from usdm4.api.study import Study
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
-from usdm3_excel.export.base.base_panel import BasePanel
+from usdm4_excel.export.base.base_panel import BasePanel
 
 
 class MainPanel(BasePanel):

@@ -1,7 +1,7 @@
 from .main_panel import MainPanel
 from .high_level_design_panel import HighLevelDesignPanel
 from usdm4.api.study import Study
-from usdm3_excel.export.base.base_sheet import BaseSheet
+from usdm4_excel.export.base.base_sheet import BaseSheet
 
 
 class StudyDesignSheet(BaseSheet):

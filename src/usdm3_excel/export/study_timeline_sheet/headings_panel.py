@@ -7,7 +7,7 @@ from usdm4.api.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
 )
-from usdm3_excel.export.base.collection_panel import CollectionPanel
+from usdm4_excel.export.base.collection_panel import CollectionPanel
 
 
 class HeadingsPanel(CollectionPanel):

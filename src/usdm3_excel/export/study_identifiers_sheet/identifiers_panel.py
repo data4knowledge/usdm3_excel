@@ -3,7 +3,7 @@ from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.address import Address
 from usdm4.api.organization import Organization
 from usdm4.api.study_version import StudyVersion
-from usdm3_excel.export.base.collection_panel import CollectionPanel
+from usdm4_excel.export.base.collection_panel import CollectionPanel
 
 
 class IdentifiersPanel(CollectionPanel):

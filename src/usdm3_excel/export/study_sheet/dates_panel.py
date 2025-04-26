@@ -1,6 +1,6 @@
 from usdm4.api.study import Study
 from usdm4.api.governance_date import GovernanceDate
-from usdm3_excel.export.base.collection_panel import CollectionPanel
+from usdm4_excel.export.base.collection_panel import CollectionPanel
 
 
 class DatesPanel(CollectionPanel):

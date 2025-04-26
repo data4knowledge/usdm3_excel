@@ -1,7 +1,7 @@
 from usdm4.api.study import Study
 from usdm4.api.timing import Timing
 from usdm4.api.schedule_timeline import ScheduleTimeline
-from usdm3_excel.export.base.collection_panel import CollectionPanel
+from usdm4_excel.export.base.collection_panel import CollectionPanel
 
 
 class TimingPanel(CollectionPanel):

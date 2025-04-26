@@ -3,11 +3,8 @@ from usdm3_excel.export.study_sheet.study_sheet import StudySheet
 from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
     StudyIdentifiersSheet,
 )
-from usdm3_excel.export.study_document_content_sheet.study_document_content_sheet import (
-    StudyDocumentContentSheet,
-)
-from usdm3_excel.export.study_document_sheet.study_document_sheet import (
-    StudyDocumentSheet,
+from usdm3_excel.export.study_content_sheet.study_content_sheet import (
+    StudyContentSheet,
 )
 from usdm4_excel.export.study_activities_sheet.study_activities_sheet import (
     StudyActivitiesSheet,
@@ -28,7 +25,7 @@ from usdm3_excel.export.study_timeline_sheet.study_timeline_sheet import (
     StudyTimelineSheet,
 )
 from usdm3_excel.export.study_timing_sheet.study_timing_sheet import StudyTimingSheet
-from usdm3_excel.export.base.ct_version import CTVersion
+from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
@@ -46,8 +43,7 @@ class USDM3Excel:
         for klass in [
             StudySheet,
             StudyIdentifiersSheet,
-            StudyDocumentContentSheet,
-            StudyDocumentSheet,
+            StudyContentSheet,
             StudyActivitiesSheet,
             StudyTimingSheet,
             StudyEncountersSheet,
