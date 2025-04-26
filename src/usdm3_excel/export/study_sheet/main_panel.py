@@ -8,15 +8,13 @@ class MainPanel(BasePanel):
         version = study.versions[0]
         result = []
         result.append(["name", study.name])
-        result.append(["studyVersion", version.versionIdentifier])
-        result.append(["businessTherapeuticAreas", self._business_tas(version)])
-        result.append(["", ""])
-        result.append(["name", ""])
         result.append(["studyTitle", ""])
+        result.append(["studyVersion", version.versionIdentifier])
         result.append(["studyType", ""])
         result.append(["studyPhase", version.studyDesigns[0].phase().decode])
         result.append(["studyAcronym", version.acronym_text()])
         result.append(["studyRationale", version.rationale])
+        result.append(["businessTherapeuticAreas", self._business_tas(version)])
         result.append(["briefTitle", version.short_title_text()])
         result.append(["officialTitle", version.official_title_text()])
         result.append(["publicTitle", ""])

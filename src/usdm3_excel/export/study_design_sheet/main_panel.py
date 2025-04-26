@@ -13,12 +13,29 @@ class MainPanel(BasePanel):
         result.append(["studyDesignDescription", design.description])
         result.append(["therapeuticAreas", self._tas(design)])
         result.append(["studyDesignRationale", design.rationale])
-        result.append(["studyDesignBlindingScheme", self._pt_from_code(design.blindingSchema)])
-        result.append(["trialIntentTypes", (", ").join([self._pt_from_code(x) for x in design.intentTypes])])
-        result.append(["trialSubTypes", (", ").join([self._pt_from_code(x) for x in design.subTypes])])
+        result.append(
+            ["studyDesignBlindingScheme", self._pt_from_code(design.blindingSchema)]
+        )
+        result.append(
+            [
+                "trialIntentTypes",
+                (", ").join([self._pt_from_code(x) for x in design.intentTypes]),
+            ]
+        )
+        result.append(
+            [
+                "trialSubTypes",
+                (", ").join([self._pt_from_code(x) for x in design.subTypes]),
+            ]
+        )
         result.append(["interventionModel", self._pt_from_code(design.model)])
         result.append(["masking", ""])
-        result.append(["characteristics", (", ").join([self._pt_from_code(x) for x in design.characteristics])])
+        result.append(
+            [
+                "characteristics",
+                (", ").join([self._pt_from_code(x) for x in design.characteristics]),
+            ]
+        )
         result.append(["mainTimeline", "mainTimeline"])
         result.append(["otherTimelines", ""])
         result.append(["studyType", self._pt_from_code(design.studyType)])
@@ -32,5 +49,3 @@ class MainPanel(BasePanel):
             self.ct_version.add(area.codeSystem, area.codeSystemVersion)
             items.append(f"{area.codeSystem}: {area.code} = {area.decode}")
         return ", ".join(items)
-
-

@@ -11,7 +11,7 @@ class MainPanel(BasePanel):
         version: StudyVersion = study.versions[0]
         design: StudyDesign = version.studyDesigns[0]
         timeline: ScheduleTimeline = design.main_timeline()
-        result.append(["Name", timeline.name if timeline else ''])
-        result.append(["Description", timeline.description if timeline else ''])
-        result.append(["Condition", timeline.entryCondition if timeline else ''])
+        result.append(["Name", timeline.name if timeline else ""])
+        result.append(["Description", timeline.description if timeline else ""])
+        result.append(["Condition", timeline.entryCondition if timeline else ""])
         return result

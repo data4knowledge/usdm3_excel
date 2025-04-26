@@ -6,7 +6,6 @@ from usdm3_excel.export.base.base_sheet import BaseSheet
 
 
 class StudyTimelineSheet(BaseSheet):
-
     SHEET_NAME = "mainTimeline"
 
     def save(self, study: Study):

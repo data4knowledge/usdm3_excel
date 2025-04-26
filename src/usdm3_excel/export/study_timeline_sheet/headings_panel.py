@@ -2,7 +2,11 @@ from usdm4.api.study import Study
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4.api.schedule_timeline import ScheduleTimeline
-from usdm4.api.scheduled_instance import ScheduledInstance, ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm4.api.scheduled_instance import (
+    ScheduledInstance,
+    ScheduledActivityInstance,
+    ScheduledDecisionInstance,
+)
 from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
@@ -26,11 +30,21 @@ class HeadingsPanel(CollectionPanel):
                 self._add_instance(collection, timepoint, design, timeline)
         return collection
 
-    def _add_instance(self, collection: list, item: ScheduledActivityInstance | ScheduledDecisionInstance, study_design: StudyDesign, timeline: ScheduleTimeline):
+    def _add_instance(
+        self,
+        collection: list,
+        item: ScheduledActivityInstance | ScheduledDecisionInstance,
+        study_design: StudyDesign,
+        timeline: ScheduleTimeline,
+    ):
         data = item.model_dump()
-        data["type"] = "Activity" if item.instanceType == "ScheduledActivityInstance" else "Decision"
+        data["type"] = (
+            "Activity"
+            if item.instanceType == "ScheduledActivityInstance"
+            else "Decision"
+        )
         data["default"] = timeline.find_timepoint(item.defaultConditionId)
-        data["condition"] = "" # @todo Not needed in this release
+        data["condition"] = ""  # @todo Not needed in this release
         epoch = study_design.find_epoch(item.epochId)
         data["epoch"] = epoch.name if epoch else ""
         encounter = study_design.find_encounter(item.encounterId)

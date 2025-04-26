@@ -15,13 +15,13 @@ from usdm3_excel.export.study_document_sheet.study_document_sheet import (
 from usdm3_excel.export.study_activities_sheet.study_activities_sheet import (
     StudyActivitiesSheet,
 )
-from usdm3_excel.export.study_encounters_sheet.study_encounters_sheet import (
+from usdm4_excel.export.study_encounters_sheet.study_encounters_sheet import (
     StudyEncountersSheet,
 )
-from usdm3_excel.export.study_epochs_sheet.study_epochs_sheet import (
+from usdm4_excel.export.study_epochs_sheet.study_epochs_sheet import (
     StudyEpochsSheet,
 )
-from usdm3_excel.export.study_arms_sheet.study_arms_sheet import (
+from usdm4_excel.export.study_arms_sheet.study_arms_sheet import (
     StudyArmsSheet,
 )
 from usdm3_excel.export.study_design_sheet.study_design_sheet import (
@@ -37,7 +37,7 @@ from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 
 
-class USDM4Excel:
+class USDM3Excel:
     def to_excel(self, usdm_filepath: str, excel_filepath: str):
         ct_version = CTVersion()
         etw = ExcelTableWriter(excel_filepath, default_sheet_name="study")

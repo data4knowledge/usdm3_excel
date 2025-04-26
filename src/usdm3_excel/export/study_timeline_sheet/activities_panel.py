@@ -29,13 +29,13 @@ class ActivitiesPanel(CollectionPanel):
                     activities[activity.name][timepoint.id] = "X"
 
         # Output
-        collection.append(["Parent Activity", "Child Activity", "BC/Procedure/Timeline"] + list(row.values()))
+        collection.append(
+            ["Parent Activity", "Child Activity", "BC/Procedure/Timeline"]
+            + list(row.values())
+        )
         for activity in activity_order:
             if activity.name in activities:
                 data = activities[activity.name]
                 label = activity.label if activity.label else activity.name
-                collection.append(
-                    ["", label, ""] + list(data.values())
-                )
+                collection.append(["", label, ""] + list(data.values()))
         return collection
-                     

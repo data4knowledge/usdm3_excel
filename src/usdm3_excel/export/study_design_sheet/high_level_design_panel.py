@@ -20,4 +20,3 @@ class HighLevelDesignPanel(CollectionPanel):
             row[0] = arm.name
             collection.append(row)
         return collection
-    

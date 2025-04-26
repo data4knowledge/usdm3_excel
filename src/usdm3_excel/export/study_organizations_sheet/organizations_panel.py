@@ -29,6 +29,6 @@ class OrganizationsPanel(CollectionPanel):
         items.append(address.city)
         items.append(address.state)
         items.append(address.postalCode)
-        code = address.country.code.code if address.country else ""        
-        items.append(code) 
+        code = address.country.code.code if address.country else ""
+        items.append(code)
         return ("|").join(items)

@@ -2,6 +2,7 @@ from .ct_version import CTVersion
 from usdm4.api.code import Code
 from usdm4.api.alias_code import AliasCode
 
+
 class BasePanel:
     def __init__(self, ct_version: CTVersion):
         self.ct_version = ct_version
@@ -11,5 +12,5 @@ class BasePanel:
 
     def _pt_from_alias_code(self, code: AliasCode):
         if code is None or code.standardCode is None:
-            return ''
+            return ""
         return code.standardCode.decode
