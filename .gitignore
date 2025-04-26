@@ -175,4 +175,5 @@ cython_debug/
 
 # Other
 ~$*.xlsx
+*.xlsx
 .DS_store
