@@ -3,7 +3,7 @@ from usdm4.api.study_design import StudyDesign
 from usdm4.api.encounter import Encounter
 from usdm4.api.timing import Timing
 from usdm4.api.schedule_timeline import ScheduleTimeline
-from usdm4_excel.export.base.collection_panel import CollectionPanel
+from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
 class EncountersPanel(CollectionPanel):

@@ -2,7 +2,7 @@ from usdm4.api.study import Study
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm4.api.narrative_content import NarrativeContent, NarrativeContentItem
-from usdm4_excel.export.base.collection_panel import CollectionPanel
+from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
 class DocumentPanel(CollectionPanel):

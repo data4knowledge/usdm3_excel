@@ -1,7 +1,7 @@
 from usdm4.api.study import Study
 from usdm4.api.address import Address
 from usdm4.api.organization import Organization
-from usdm4_excel.export.base.collection_panel import CollectionPanel
+from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
 class OrganizationsPanel(CollectionPanel):

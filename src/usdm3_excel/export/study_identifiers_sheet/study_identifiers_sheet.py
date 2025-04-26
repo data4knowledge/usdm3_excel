@@ -1,6 +1,6 @@
 from .identifiers_panel import IdentifiersPanel
 from usdm4.api.study import Study
-from usdm4_excel.export.base.base_sheet import BaseSheet
+from usdm3_excel.export.base.base_sheet import BaseSheet
 
 
 class StudyIdentifiersSheet(BaseSheet):

@@ -3,7 +3,7 @@ from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4.api.schedule_timeline import ScheduleTimeline
 from usdm4.api.scheduled_instance import ScheduledInstance, ScheduledActivityInstance, ScheduledDecisionInstance
-from usdm4_excel.export.base.collection_panel import CollectionPanel
+from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
 class HeadingsPanel(CollectionPanel):
