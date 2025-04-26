@@ -14,7 +14,14 @@ class IdentifiersPanel(CollectionPanel):
                 self._add_identifier(collection, item, version)
         return super().execute(
             collection,
-            ["organizationIdentifierScheme", "organizationIdentifier", "organizationName", "organizationType", "studyIdentifier", "organizationAddress"],
+            [
+                "organizationIdentifierScheme",
+                "organizationIdentifier",
+                "organizationName",
+                "organizationType",
+                "studyIdentifier",
+                "organizationAddress",
+            ],
         )
 
     def _add_identifier(

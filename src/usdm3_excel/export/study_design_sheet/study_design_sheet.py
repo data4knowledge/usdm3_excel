@@ -8,9 +8,8 @@ class StudyDesignSheet(BaseSheet):
     SHEET_NAME = "studyDesign"
 
     def save(self, study: Study):
-
         print(f"****** STUDY DESIGN ******")
-        
+
         mp = MainPanel(self.ct_version)
         result = mp.execute(study)
         # print(f"RESULT: {result}")

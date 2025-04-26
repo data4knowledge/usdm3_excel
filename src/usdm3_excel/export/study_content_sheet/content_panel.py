@@ -5,7 +5,7 @@ from usdm4.api.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm3_excel.export.base.collection_panel import CollectionPanel
 
 
-class DocumentPanel(CollectionPanel):
+class ContentPanel(CollectionPanel):
     def execute(self, study: Study) -> list[list[dict]]:
         collection = []
         for version in study.versions:
@@ -19,10 +19,8 @@ class DocumentPanel(CollectionPanel):
             [
                 "name",
                 "sectionNumber",
-                "displaySectionNumber",
                 "sectionTitle",
-                "displaySectionNumber",
-                "content",
+                "text",
             ],
         )
 
@@ -31,7 +29,7 @@ class DocumentPanel(CollectionPanel):
     ):
         data = item.model_dump()
         nci = self._find_content_item(version, item.contentItemId)
-        data["content"] = nci.name if nci else None
+        data["text"] = nci.text if nci else None
         collection.append(data)
 
     def _find_document_version(

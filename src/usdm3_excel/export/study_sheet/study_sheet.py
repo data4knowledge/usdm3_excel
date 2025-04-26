@@ -7,11 +7,10 @@ from usdm3_excel.export.base.base_sheet import BaseSheet
 
 class StudySheet(BaseSheet):
     SHEET_NAME = "study"
-    
-    def save(self, study: Study):
 
+    def save(self, study: Study):
         print(f"****** STUDY ******")
-        
+
         mp = MainPanel(self.ct_version)
         result = mp.execute(study)
         last_row = self.etw.add_table(result, self.SHEET_NAME)

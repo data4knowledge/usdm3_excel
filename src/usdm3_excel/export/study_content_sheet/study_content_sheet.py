@@ -1,13 +1,15 @@
-from .document_content_panel import DocumentContentPanel
+from .content_panel import DocumentContentPanel
 from usdm4.api.study import Study
+from usdm4.api.study_definition_document_version import StudyDefinitionDocumentVersion
+from usdm4.api.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm3_excel.export.base.base_sheet import BaseSheet
 
 
 class StudyDocumentContentSheet(BaseSheet):
-    SHEET_NAME = "documentContent"
+    SHEET_NAME = "studyDesignContent"
 
     def save(self, study: Study):
-        op = DocumentContentPanel(self.ct_version)
+        op = contentPanel(self.ct_version)
         result = op.execute(study)
         last_row = self.etw.add_table(result, self.SHEET_NAME)
         self.etw.format_cells(
