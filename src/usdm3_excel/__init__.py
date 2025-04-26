@@ -24,6 +24,7 @@ from usdm3_excel.export.study_design_sheet.study_design_sheet import (
 from usdm3_excel.export.study_timeline_sheet.study_timeline_sheet import (
     StudyTimelineSheet,
 )
+from usdm4_excel.export.configuration_sheet.configuration_sheet import ConfigurationSheet
 from usdm3_excel.export.study_timing_sheet.study_timing_sheet import StudyTimingSheet
 from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
@@ -51,6 +52,7 @@ class USDM3Excel:
             StudyArmsSheet,
             StudyDesignSheet,
             StudyTimelineSheet,
+            ConfigurationSheet
         ]:
             klass(ct_version, etw).save(study)
         etw.save()
