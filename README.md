@@ -1,6 +1,6 @@
 # USDM4_Excel
 
-Library for import and export of USDM Version 4 via MS Excel
+Library for import and export of USDM Version 3 via MS Excel. The package exports from USDM4 data.
 
 # Build Package
 

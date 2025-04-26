@@ -8,11 +8,11 @@ with open("src/usdm4_excel/__version__.py") as fp:
     exec(fp.read(), package_info)
 
 setuptools.setup(
-    name="usdm4_excel",
+    name="usdm3_excel",
     version=package_info["__package_version__"],
     author="D Iberson-Hurst",
     author_email="",
-    description="A python package for importing and exporting the CDISC TransCelerate USDM, version 4, using Excel",
+    description="A python package for importing and exporting the CDISC TransCelerate USDM, version 3, using Excel",
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=["usdm4", "openpyxl"],
