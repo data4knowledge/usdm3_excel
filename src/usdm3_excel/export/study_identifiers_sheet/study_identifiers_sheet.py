@@ -12,8 +12,8 @@ class StudyIdentifiersSheet(BaseSheet):
         self.etw.add_table(result, self.SHEET_NAME)
         self.etw.format_cells(
             self.SHEET_NAME,
-            (1, 1, 1, 2),
+            (1, 1, 1, 6),
             font_style="bold",
             background_color=self.HEADING_BG,
         )
-        self.etw.set_column_width(self.SHEET_NAME, [1, 2], 20.0)
+        self.etw.set_column_width(self.SHEET_NAME, [1, 6], 20.0)

@@ -1,8 +1,5 @@
 import json
 from usdm3_excel.export.study_sheet.study_sheet import StudySheet
-from usdm3_excel.export.study_organizations_sheet.study_organizations_sheet import (
-    StudyOrganizationsSheet,
-)
 from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
     StudyIdentifiersSheet,
 )
@@ -12,7 +9,7 @@ from usdm3_excel.export.study_document_content_sheet.study_document_content_shee
 from usdm3_excel.export.study_document_sheet.study_document_sheet import (
     StudyDocumentSheet,
 )
-from usdm3_excel.export.study_activities_sheet.study_activities_sheet import (
+from usdm4_excel.export.study_activities_sheet.study_activities_sheet import (
     StudyActivitiesSheet,
 )
 from usdm4_excel.export.study_encounters_sheet.study_encounters_sheet import (
@@ -48,7 +45,6 @@ class USDM3Excel:
         study = wrapper.study
         for klass in [
             StudySheet,
-            StudyOrganizationsSheet,
             StudyIdentifiersSheet,
             StudyDocumentContentSheet,
             StudyDocumentSheet,
