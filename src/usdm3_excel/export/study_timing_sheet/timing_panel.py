@@ -27,14 +27,30 @@ class TimingPanel(CollectionPanel):
             ],
         )
 
+    def type_to_v3(self, code: str) -> str:
+        if code == "Fixed Reference":
+            return "Fixed"
+        return code
+
+    def toFrom_to_v3(self, code: str) -> str:
+        if code == "Start to Start":
+            return "S2S"
+        return code
+
+    def timingValue_to_v3(self, code: str) -> str:
+        if code == "TBD":
+            return "1 day"
+        return code
+
     def _add_timing(self, collection: list, item: Timing, timeline: ScheduleTimeline):
         data = item.model_dump()
-        data["type"] = self._pt_from_code(item.type)
+        data["type"] = self.type_to_v3(self._pt_from_code(item.type))
         from_tp = timeline.find_timepoint(item.relativeFromScheduledInstanceId)
         data["from"] = from_tp.name if from_tp else ""
         to_tp = timeline.find_timepoint(item.relativeToScheduledInstanceId)
+        # print("to_tp", to_tp, "should not be blank")
         data["to"] = to_tp.name if to_tp else ""
-        data["timingValue"] = item.valueLabel
+        data["timingValue"] = self.timingValue_to_v3(item.valueLabel)
         data["window"] = item.windowLabel
-        data["toFrom"] = self._pt_from_code(item.relativeToFrom)
+        data["toFrom"] = self.toFrom_to_v3(self._pt_from_code(item.relativeToFrom))
         collection.append(data)
