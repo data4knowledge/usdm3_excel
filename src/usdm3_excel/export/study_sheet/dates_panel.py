@@ -24,7 +24,8 @@ class DatesPanel(CollectionPanel):
     def _add_date(self, collection: list, date: GovernanceDate, category: str):
         data = date.model_dump()
         data["type"] = self._pt_from_code(date.type)
-        data["date"] = self._date_from_date(date.dateValue)
+        # data["date"] = self._date_from_date(date.dateValue)
+        data["date"] = date.dateValue
         data["scopes"] = self._scopes(date.geographicScopes)
         data["category"] = category
         collection.append(data)
