@@ -27,20 +27,20 @@ class TimingPanel(CollectionPanel):
             ],
         )
 
-    def type_to_v3(self, code: str) -> str:
-        if code == "Fixed Reference":
+    def type_to_v3(self, pt: str) -> str:
+        if pt == "Fixed Reference":
             return "Fixed"
-        return code
+        return pt
 
-    def toFrom_to_v3(self, code: str) -> str:
-        if code == "Start to Start":
+    def toFrom_to_v3(self, pt: str) -> str:
+        if pt == "Start to Start":
             return "S2S"
-        return code
+        return pt
 
-    def timingValue_to_v3(self, code: str) -> str:
-        if code == "TBD":
+    def timingValue_to_v3(self, pt: str) -> str:
+        if pt == "TBD":
             return "1 day"
-        return code
+        return pt
 
     def _add_timing(self, collection: list, item: Timing, timeline: ScheduleTimeline):
         data = item.model_dump()

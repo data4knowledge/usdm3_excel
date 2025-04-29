@@ -63,22 +63,15 @@ class USDM3Excel:
             ["Exclusion", "01", "EX01", "", "Label", "<p>Exclusion criteria text</p>", ""]
             ],"studyDesignEligibilityCriteria")
 
-
-
         # Add expected content, if missing
         clinic = Code(**{'uuid': 'uuid', 'id': '0', 'code': '1', 'codeSystem': '2', 'codeSystemVersion': '3', 'decode': 'CLINIC', 'instanceType': 'Code'})
         in_person = Code(**{'uuid': 'uuid', 'id': '0', 'code': '1', 'codeSystem': '2', 'codeSystemVersion': '3', 'decode': 'In Person', 'instanceType': 'Code'})
-        print("clinic", clinic)
-        # print("study.versions[0].studyDesigns[0]", study.versions[0].studyDesigns[0])
         for encounter in study.versions[0].studyDesigns[0].encounters:
             if encounter.environmentalSettings == []:
                 encounter.environmentalSettings = [clinic]
             if encounter.contactModes == []:
                 encounter.contactModes = [in_person]
-        # for a in study.versions[0].studyDesigns[0].scheduleTimelines:
-        #     print("a",a)
-            # if encounter.environmentalSettings == []:
-            #     encounter.environmentalSettings = [clinic]
+
         for klass in [
             StudySheet,
             StudyIdentifiersSheet,
