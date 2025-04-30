@@ -26,6 +26,14 @@ class HeadingsPanel(CollectionPanel):
         design: StudyDesign = version.studyDesigns[0]
         timeline: ScheduleTimeline = design.main_timeline()
         if timeline:
+            # Workaround if defaultConditionId is not set in USDM4
+            n_timepoints = len(timeline.timepoint_list())
+            timepoint_list = timeline.timepoint_list()
+            for i in range(n_timepoints):
+                if not timepoint_list[i].defaultConditionId:
+                    if i != n_timepoints - 1:
+                        timepoint_list[i].defaultConditionId = timepoint_list[i+1].id
+
             for timepoint in timeline.timepoint_list():
                 self._add_instance(collection, timepoint, design, timeline)
         return collection
@@ -43,7 +51,9 @@ class HeadingsPanel(CollectionPanel):
             if item.instanceType == "ScheduledActivityInstance"
             else "Decision"
         )
-        data["default"] = timeline.find_timepoint(item.defaultConditionId)
+        # data["default"] = timeline.find_timepoint(item.defaultConditionId)
+        k = timeline.find_timepoint(item.defaultConditionId)
+        data["default"] = k.name if k else ""
         data["condition"] = ""  # @todo Not needed in this release
         epoch = study_design.find_epoch(item.epochId)
         data["epoch"] = epoch.name if epoch else ""
