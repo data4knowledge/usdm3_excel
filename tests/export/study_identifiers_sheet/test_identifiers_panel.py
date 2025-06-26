@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
 
-from usdm3_excel.export.study_identifiers_sheet.identifiers_panel import IdentifiersPanel
+from usdm3_excel.export.study_identifiers_sheet.identifiers_panel import (
+    IdentifiersPanel,
+)
 from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.organization import Organization
@@ -46,7 +48,9 @@ class TestIdentifiersPanel:
             panel.execute(mock_study)
 
             # Verify that _add_identifier was called with the correct arguments
-            mock_add_identifier.assert_called_once_with([], mock_identifier, mock_version)
+            mock_add_identifier.assert_called_once_with(
+                [], mock_identifier, mock_version
+            )
 
     def test_add_identifier(self):
         """Test the _add_identifier method."""
@@ -65,13 +69,13 @@ class TestIdentifiersPanel:
         # Configure the mock objects
         mock_identifier.scopeId = "org123"
         mock_identifier.text = "Study-123"
-        
+
         mock_version.organization.return_value = mock_organization
-        
+
         # Set the attributes directly on the mock_organization
         mock_organization.type = MagicMock()
         mock_organization.legalAddress = MagicMock(spec=Address)
-        
+
         mock_organization.model_dump.return_value = {
             "identifierScheme": "Scheme-123",
             "identifier": "Org-123",
@@ -82,8 +86,14 @@ class TestIdentifiersPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_pt_from_code", return_value="Organization Type") as mock_pt_from_code,
-            patch.object(panel, "_from_address", return_value="Address Line 1|City|State|12345|US") as mock_from_address,
+            patch.object(
+                panel, "_pt_from_code", return_value="Organization Type"
+            ) as mock_pt_from_code,
+            patch.object(
+                panel,
+                "_from_address",
+                return_value="Address Line 1|City|State|12345|US",
+            ) as mock_from_address,
         ):
             # Call the _add_identifier method
             panel._add_identifier(collection, mock_identifier, mock_version)
@@ -99,7 +109,10 @@ class TestIdentifiersPanel:
             assert collection[0]["organizationName"] == "Test Organization"
             assert collection[0]["organizationType"] == "Organization Type"
             assert collection[0]["studyIdentifier"] == "Study-123"
-            assert collection[0]["organizationAddress"] == "Address Line 1|City|State|12345|US"
+            assert (
+                collection[0]["organizationAddress"]
+                == "Address Line 1|City|State|12345|US"
+            )
 
     def test_from_address_with_address(self):
         """Test the _from_address method with a valid address."""
@@ -116,7 +129,7 @@ class TestIdentifiersPanel:
         mock_address.city = "City"
         mock_address.state = "State"
         mock_address.postalCode = "12345"
-        
+
         # Set up the country attribute with nested mocks
         mock_country = MagicMock()
         mock_code = MagicMock()

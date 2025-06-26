@@ -3,7 +3,10 @@ from unittest.mock import MagicMock, patch
 from usdm3_excel.export.study_timeline_sheet.headings_panel import HeadingsPanel
 from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4.api.schedule_timeline import ScheduleTimeline
-from usdm4.api.scheduled_instance import ScheduledActivityInstance, ScheduledDecisionInstance
+from usdm4.api.scheduled_instance import (
+    ScheduledActivityInstance,
+    ScheduledDecisionInstance,
+)
 
 
 class TestHeadingsPanel:
@@ -158,7 +161,7 @@ class TestHeadingsPanel:
         mock_instance.defaultConditionId = "default_condition_id"
         mock_instance.epochId = "epoch_id"
         mock_instance.encounterId = "encounter_id"
-        
+
         mock_instance.model_dump.return_value = {
             "name": "Activity1",
             "description": "Activity description",
@@ -218,7 +221,7 @@ class TestHeadingsPanel:
         mock_instance.defaultConditionId = "default_condition_id"
         mock_instance.epochId = "epoch_id"
         mock_instance.encounterId = "encounter_id"
-        
+
         mock_instance.model_dump.return_value = {
             "name": "Decision1",
             "description": "Decision description",

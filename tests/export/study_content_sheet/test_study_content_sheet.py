@@ -32,7 +32,9 @@ class TestStudyContentSheet:
 
         # Create a mock ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        mock_etw.add_table.return_value = 10  # Simulate adding a table and returning the last row
+        mock_etw.add_table.return_value = (
+            10  # Simulate adding a table and returning the last row
+        )
 
         # Create a StudyContentSheet instance
         sheet = StudyContentSheet(ct_version, mock_etw)
@@ -66,7 +68,12 @@ class TestStudyContentSheet:
             mock_etw.add_table.assert_called_once_with(
                 [
                     ["name", "sectionNumber", "sectionTitle", "text"],
-                    ["Content1", "1.0", "Introduction", "This is the introduction text."],
+                    [
+                        "Content1",
+                        "1.0",
+                        "Introduction",
+                        "This is the introduction text.",
+                    ],
                     ["Content2", "2.0", "Methods", "This is the methods text."],
                 ],
                 "studyDesignContent",

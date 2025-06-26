@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
 
-from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import StudyIdentifiersSheet
+from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
+    StudyIdentifiersSheet,
+)
 from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
 
@@ -32,7 +34,9 @@ class TestStudyIdentifiersSheet:
 
         # Create a mock ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        mock_etw.add_table.return_value = 10  # Simulate adding a table and returning the last row
+        mock_etw.add_table.return_value = (
+            10  # Simulate adding a table and returning the last row
+        )
 
         # Create a StudyIdentifiersSheet instance
         sheet = StudyIdentifiersSheet(ct_version, mock_etw)

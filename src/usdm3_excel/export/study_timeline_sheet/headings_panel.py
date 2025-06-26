@@ -3,7 +3,6 @@ from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4.api.schedule_timeline import ScheduleTimeline
 from usdm4.api.scheduled_instance import (
-    ScheduledInstance,
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
 )
@@ -32,7 +31,7 @@ class HeadingsPanel(CollectionPanel):
             for i in range(n_timepoints):
                 if not timepoint_list[i].defaultConditionId:
                     if i != n_timepoints - 1:
-                        timepoint_list[i].defaultConditionId = timepoint_list[i+1].id
+                        timepoint_list[i].defaultConditionId = timepoint_list[i + 1].id
 
             for timepoint in timeline.timepoint_list():
                 self._add_instance(collection, timepoint, design, timeline)

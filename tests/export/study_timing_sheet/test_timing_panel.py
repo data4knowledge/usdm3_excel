@@ -76,7 +76,7 @@ class TestTimingPanel:
         mock_timing.valueLabel = "Value1"
         mock_timing.windowLabel = "Window1"
         mock_timing.relativeToFrom = mock_relative_to_from
-        
+
         mock_timing.model_dump.return_value = {
             "name": "Timing1",
             "description": "Description1",
@@ -151,7 +151,7 @@ class TestTimingPanel:
         mock_timing.valueLabel = "Value1"
         mock_timing.windowLabel = "Window1"
         mock_timing.relativeToFrom = mock_relative_to_from
-        
+
         mock_timing.model_dump.return_value = {
             "name": "Timing1",
             "description": "Description1",

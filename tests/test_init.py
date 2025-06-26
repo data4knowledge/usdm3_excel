@@ -20,41 +20,56 @@ class TestUSDM3Excel:
         mock_json_data = {
             "study": {
                 "id": "550e8400-e29b-41d4-a716-446655440000",  # Using a valid UUID
-                "name": "Test Study"
+                "name": "Test Study",
             },
             "usdmVersion": "3.0.0",
-            "instanceType": "Wrapper"
+            "instanceType": "Wrapper",
         }
         m = mock_open(read_data=json.dumps(mock_json_data))
 
         # Create a mock for the ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        
+
         # Create a mock for the Workbook
         mock_workbook = MagicMock()
         mock_ws = MagicMock()
         mock_workbook.active = mock_ws
-        
+
         # Mock the necessary classes and methods
         with (
             patch("builtins.open", m),
-            patch("os.path.exists", return_value=False),  # Make sure it creates a new workbook
+            patch(
+                "os.path.exists", return_value=False
+            ),  # Make sure it creates a new workbook
             patch("openpyxl.Workbook", return_value=mock_workbook),
-            patch("usdm4_excel.export.base.ct_version.CTVersion") as mock_ct_version_class,
-            patch("usdm4_excel.excel_table_writer.excel_table_writer.ExcelTableWriter", return_value=mock_etw),
+            patch(
+                "usdm4_excel.export.base.ct_version.CTVersion"
+            ) as mock_ct_version_class,
+            patch(
+                "usdm4_excel.excel_table_writer.excel_table_writer.ExcelTableWriter",
+                return_value=mock_etw,
+            ),
             patch("usdm4.USDM4") as mock_usdm4_class,
             patch("usdm3_excel.StudySheet") as mock_study_sheet_class,
-            patch("usdm3_excel.StudyIdentifiersSheet") as mock_study_identifiers_sheet_class,
+            patch(
+                "usdm3_excel.StudyIdentifiersSheet"
+            ) as mock_study_identifiers_sheet_class,
             patch("usdm3_excel.StudyContentSheet") as mock_study_content_sheet_class,
-            patch("usdm3_excel.StudyActivitiesSheet") as mock_study_activities_sheet_class,
+            patch(
+                "usdm3_excel.StudyActivitiesSheet"
+            ) as mock_study_activities_sheet_class,
             patch("usdm3_excel.StudyTimingSheet") as mock_study_timing_sheet_class,
-            patch("usdm3_excel.StudyEncountersSheet") as mock_study_encounters_sheet_class,
+            patch(
+                "usdm3_excel.StudyEncountersSheet"
+            ) as mock_study_encounters_sheet_class,
             patch("usdm3_excel.StudyEpochsSheet") as mock_study_epochs_sheet_class,
             patch("usdm3_excel.StudyArmsSheet") as mock_study_arms_sheet_class,
             patch("usdm3_excel.StudyDesignSheet") as mock_study_design_sheet_class,
             patch("usdm3_excel.StudyTimelineSheet") as mock_study_timeline_sheet_class,
             patch("usdm3_excel.ConfigurationSheet") as mock_configuration_sheet_class,
-            patch("usdm4_excel.export.study_procedures_sheet.study_procedures_sheet.StudyProceduresSheet") as mock_study_procedures_sheet_class,
+            patch(
+                "usdm4_excel.export.study_procedures_sheet.study_procedures_sheet.StudyProceduresSheet"
+            ) as mock_study_procedures_sheet_class,
         ):
             # Configure the mocks
             mock_ct_version = MagicMock(spec=CTVersion)
@@ -82,7 +97,7 @@ class TestUSDM3Excel:
                 mock_study_procedures_sheet_class.return_value,
                 mock_configuration_sheet_class.return_value,
             ]
-            
+
             # Call the to_excel method
             usdm3_excel.to_excel("test.json", "test.xlsx")
 

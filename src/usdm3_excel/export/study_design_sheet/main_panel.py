@@ -1,5 +1,4 @@
 from usdm4.api.study import Study
-from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4_excel.export.base.base_panel import BasePanel
 
@@ -14,7 +13,10 @@ class MainPanel(BasePanel):
         result.append(["therapeuticAreas", self._tas(design)])
         result.append(["studyDesignRationale", design.rationale])
         result.append(
-            ["studyDesignBlindingScheme", self._pt_from_alias_code(design.blindingSchema)]
+            [
+                "studyDesignBlindingScheme",
+                self._pt_from_alias_code(design.blindingSchema),
+            ]
         )
         result.append(
             [

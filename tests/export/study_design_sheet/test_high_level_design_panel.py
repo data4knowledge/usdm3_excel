@@ -1,6 +1,8 @@
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
-from usdm3_excel.export.study_design_sheet.high_level_design_panel import HighLevelDesignPanel
+from usdm3_excel.export.study_design_sheet.high_level_design_panel import (
+    HighLevelDesignPanel,
+)
 from usdm4_excel.export.base.ct_version import CTVersion
 
 
@@ -40,11 +42,11 @@ class TestHighLevelDesignPanel:
         # Configure the mock objects
         mock_study.versions = [mock_version]
         mock_version.studyDesigns = [mock_design]
-        
+
         mock_epoch1.name = "Epoch1"
         mock_epoch2.name = "Epoch2"
         mock_design.epochs = [mock_epoch1, mock_epoch2]
-        
+
         mock_arm1.name = "Arm1"
         mock_arm2.name = "Arm2"
         mock_design.arms = [mock_arm1, mock_arm2]
@@ -78,7 +80,7 @@ class TestHighLevelDesignPanel:
         # Configure the mock objects
         mock_study.versions = [mock_version]
         mock_version.studyDesigns = [mock_design]
-        
+
         mock_design.epochs = []
         mock_design.arms = []
 
@@ -108,11 +110,11 @@ class TestHighLevelDesignPanel:
         # Configure the mock objects
         mock_study.versions = [mock_version]
         mock_version.studyDesigns = [mock_design]
-        
+
         mock_epoch1.name = "Epoch1"
         mock_epoch2.name = "Epoch2"
         mock_design.epochs = [mock_epoch1, mock_epoch2]
-        
+
         mock_design.arms = []
 
         # Call the execute method
@@ -122,7 +124,7 @@ class TestHighLevelDesignPanel:
         # The implementation adds the header row for each epoch
         expected_result = [
             ["Epoch/Arms", "Epoch1", "Epoch2"],
-            ["Epoch/Arms", "Epoch1", "Epoch2"]
+            ["Epoch/Arms", "Epoch1", "Epoch2"],
         ]
         assert result == expected_result
 
@@ -144,9 +146,9 @@ class TestHighLevelDesignPanel:
         # Configure the mock objects
         mock_study.versions = [mock_version]
         mock_version.studyDesigns = [mock_design]
-        
+
         mock_design.epochs = []
-        
+
         mock_arm1.name = "Arm1"
         mock_arm2.name = "Arm2"
         mock_design.arms = [mock_arm1, mock_arm2]

@@ -85,8 +85,12 @@ class TestDatesPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_pt_from_code", return_value="Decoded Type") as mock_pt_from_code,
-            patch.object(panel, "_date_from_date", return_value="01/01/2023") as mock_date_from_date,
+            patch.object(
+                panel, "_pt_from_code", return_value="Decoded Type"
+            ) as mock_pt_from_code,
+            patch.object(
+                panel, "_date_from_date", return_value="01/01/2023"
+            ) as mock_date_from_date,
             patch.object(panel, "_scopes", return_value="Global") as mock_scopes,
         ):
             # Call the _add_date method

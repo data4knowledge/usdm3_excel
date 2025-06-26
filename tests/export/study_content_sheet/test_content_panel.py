@@ -43,15 +43,21 @@ class TestContentPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_find_document_version", return_value=mock_doc_version) as mock_find_document_version,
+            patch.object(
+                panel, "_find_document_version", return_value=mock_doc_version
+            ) as mock_find_document_version,
             patch.object(panel, "_add_content") as mock_add_content,
         ):
             # Call the execute method
             panel.execute(mock_study)
 
             # Verify that the helper methods were called with the correct arguments
-            mock_find_document_version.assert_called_once_with(mock_study, "doc_version_1")
-            mock_add_content.assert_called_once_with([], mock_narrative_content, mock_version)
+            mock_find_document_version.assert_called_once_with(
+                mock_study, "doc_version_1"
+            )
+            mock_add_content.assert_called_once_with(
+                [], mock_narrative_content, mock_version
+            )
 
     def test_execute_no_document_version(self):
         """Test the execute method when no document version is found."""
@@ -71,14 +77,18 @@ class TestContentPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_find_document_version", return_value=None) as mock_find_document_version,
+            patch.object(
+                panel, "_find_document_version", return_value=None
+            ) as mock_find_document_version,
             patch.object(panel, "_add_content") as mock_add_content,
         ):
             # Call the execute method
             panel.execute(mock_study)
 
             # Verify that the helper methods were called with the correct arguments
-            mock_find_document_version.assert_called_once_with(mock_study, "doc_version_1")
+            mock_find_document_version.assert_called_once_with(
+                mock_study, "doc_version_1"
+            )
             mock_add_content.assert_not_called()
 
     def test_add_content(self):
@@ -106,12 +116,16 @@ class TestContentPanel:
         mock_content_item.text = "This is the introduction text."
 
         # Mock the helper method
-        with patch.object(panel, "_find_content_item", return_value=mock_content_item) as mock_find_content_item:
+        with patch.object(
+            panel, "_find_content_item", return_value=mock_content_item
+        ) as mock_find_content_item:
             # Call the _add_content method
             panel._add_content(collection, mock_narrative_content, mock_version)
 
             # Verify that the helper method was called with the correct arguments
-            mock_find_content_item.assert_called_once_with(mock_version, "content_item_1")
+            mock_find_content_item.assert_called_once_with(
+                mock_version, "content_item_1"
+            )
 
             # Verify that the collection was updated correctly
             assert len(collection) == 1
@@ -143,12 +157,16 @@ class TestContentPanel:
         mock_narrative_content.contentItemId = "content_item_1"
 
         # Mock the helper method
-        with patch.object(panel, "_find_content_item", return_value=None) as mock_find_content_item:
+        with patch.object(
+            panel, "_find_content_item", return_value=None
+        ) as mock_find_content_item:
             # Call the _add_content method
             panel._add_content(collection, mock_narrative_content, mock_version)
 
             # Verify that the helper method was called with the correct arguments
-            mock_find_content_item.assert_called_once_with(mock_version, "content_item_1")
+            mock_find_content_item.assert_called_once_with(
+                mock_version, "content_item_1"
+            )
 
             # Verify that the collection was updated correctly
             assert len(collection) == 1

@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
 
-from usdm3_excel.export.study_timeline_sheet.study_timeline_sheet import StudyTimelineSheet
+from usdm3_excel.export.study_timeline_sheet.study_timeline_sheet import (
+    StudyTimelineSheet,
+)
 from usdm4_excel.export.base.ct_version import CTVersion
 from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
 
@@ -32,7 +34,11 @@ class TestStudyTimelineSheet:
 
         # Create a mock ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        mock_etw.add_table.side_effect = [5, 8, 15]  # Return values for the three add_table calls
+        mock_etw.add_table.side_effect = [
+            5,
+            8,
+            15,
+        ]  # Return values for the three add_table calls
 
         # Create a StudyTimelineSheet instance
         sheet = StudyTimelineSheet(ct_version, mock_etw)
@@ -127,7 +133,13 @@ class TestStudyTimelineSheet:
             # Verify that the ExcelTableWriter's add_table method was called with the result from the ActivitiesPanel
             mock_etw.add_table.assert_any_call(
                 [
-                    ["Parent Activity", "Child Activity", "BC/Procedure/Timeline", "", ""],
+                    [
+                        "Parent Activity",
+                        "Child Activity",
+                        "BC/Procedure/Timeline",
+                        "",
+                        "",
+                    ],
                     ["", "Activity1", "", "X", ""],
                     ["", "Activity2", "", "", "X"],
                 ],

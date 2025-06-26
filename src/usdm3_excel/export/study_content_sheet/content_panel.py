@@ -14,7 +14,9 @@ class ContentPanel(CollectionPanel):
                 doc = self._find_document_version(study, doc_version_id)
                 if doc:
                     for nc in doc.contents:
-                        nc.sectionNumber = nc.sectionNumber if nc.sectionNumber else last_section
+                        nc.sectionNumber = (
+                            nc.sectionNumber if nc.sectionNumber else last_section
+                        )
                         last_section = nc.sectionNumber
                         self._add_content(collection, nc, version)
         return super().execute(

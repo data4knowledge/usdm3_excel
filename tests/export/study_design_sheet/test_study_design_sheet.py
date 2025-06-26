@@ -32,7 +32,10 @@ class TestStudyDesignSheet:
 
         # Create a mock ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        mock_etw.add_table.side_effect = [10, 20]  # Return values for the two add_table calls
+        mock_etw.add_table.side_effect = [
+            10,
+            20,
+        ]  # Return values for the two add_table calls
 
         # Create a StudyDesignSheet instance
         sheet = StudyDesignSheet(ct_version, mock_etw)
@@ -65,7 +68,9 @@ class TestStudyDesignSheet:
                 ["Arm1", "", ""],
                 ["Arm2", "", ""],
             ]
-            mock_high_level_design_panel_class.return_value = mock_high_level_design_panel
+            mock_high_level_design_panel_class.return_value = (
+                mock_high_level_design_panel
+            )
 
             # Call the save method
             sheet.save(mock_study)

@@ -32,7 +32,9 @@ class TestStudyTimingSheet:
 
         # Create a mock ExcelTableWriter
         mock_etw = MagicMock(spec=ExcelTableWriter)
-        mock_etw.add_table.return_value = 10  # Simulate adding a table and returning the last row
+        mock_etw.add_table.return_value = (
+            10  # Simulate adding a table and returning the last row
+        )
 
         # Create a StudyTimingSheet instance
         sheet = StudyTimingSheet(ct_version, mock_etw)
@@ -47,9 +49,39 @@ class TestStudyTimingSheet:
             # Configure the mock TimingPanel
             mock_timing_panel = MagicMock()
             mock_timing_panel.execute.return_value = [
-                ["name", "description", "label", "type", "from", "to", "timingValue", "toFrom", "window"],
-                ["Timing1", "Description1", "Label1", "Type1", "From1", "To1", "Value1", "ToFrom1", "Window1"],
-                ["Timing2", "Description2", "Label2", "Type2", "From2", "To2", "Value2", "ToFrom2", "Window2"],
+                [
+                    "name",
+                    "description",
+                    "label",
+                    "type",
+                    "from",
+                    "to",
+                    "timingValue",
+                    "toFrom",
+                    "window",
+                ],
+                [
+                    "Timing1",
+                    "Description1",
+                    "Label1",
+                    "Type1",
+                    "From1",
+                    "To1",
+                    "Value1",
+                    "ToFrom1",
+                    "Window1",
+                ],
+                [
+                    "Timing2",
+                    "Description2",
+                    "Label2",
+                    "Type2",
+                    "From2",
+                    "To2",
+                    "Value2",
+                    "ToFrom2",
+                    "Window2",
+                ],
             ]
             mock_timing_panel_class.return_value = mock_timing_panel
 
@@ -65,9 +97,39 @@ class TestStudyTimingSheet:
             # Verify that the ExcelTableWriter's add_table method was called with the result from the TimingPanel
             mock_etw.add_table.assert_called_once_with(
                 [
-                    ["name", "description", "label", "type", "from", "to", "timingValue", "toFrom", "window"],
-                    ["Timing1", "Description1", "Label1", "Type1", "From1", "To1", "Value1", "ToFrom1", "Window1"],
-                    ["Timing2", "Description2", "Label2", "Type2", "From2", "To2", "Value2", "ToFrom2", "Window2"],
+                    [
+                        "name",
+                        "description",
+                        "label",
+                        "type",
+                        "from",
+                        "to",
+                        "timingValue",
+                        "toFrom",
+                        "window",
+                    ],
+                    [
+                        "Timing1",
+                        "Description1",
+                        "Label1",
+                        "Type1",
+                        "From1",
+                        "To1",
+                        "Value1",
+                        "ToFrom1",
+                        "Window1",
+                    ],
+                    [
+                        "Timing2",
+                        "Description2",
+                        "Label2",
+                        "Type2",
+                        "From2",
+                        "To2",
+                        "Value2",
+                        "ToFrom2",
+                        "Window2",
+                    ],
                 ],
                 "studyDesignTiming",
             )

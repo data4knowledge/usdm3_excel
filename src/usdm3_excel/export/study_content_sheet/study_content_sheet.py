@@ -23,5 +23,5 @@ class StudyContentSheet(BaseSheet):
             font_style="bold",
             background_color=self.HEADING_BG,
         )
-        self.etw.set_column_width(self.SHEET_NAME, [1,2], 20.0)
-        self.etw.set_column_width(self.SHEET_NAME, [3,4], 100.0)
+        self.etw.set_column_width(self.SHEET_NAME, [1, 2], 20.0)
+        self.etw.set_column_width(self.SHEET_NAME, [3, 4], 100.0)

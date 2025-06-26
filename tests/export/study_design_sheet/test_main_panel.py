@@ -47,7 +47,7 @@ class TestMainPanel:
         # Configure the mock objects
         mock_study.versions = [mock_version]
         mock_version.studyDesigns = [mock_design]
-        
+
         mock_design.name = "Test Design"
         mock_design.description = "Test Description"
         mock_design.rationale = "Test Rationale"
@@ -63,7 +63,9 @@ class TestMainPanel:
         with (
             patch.object(panel, "_tas", return_value="TA1, TA2") as mock_tas,
             patch.object(panel, "_pt_from_code") as mock_pt_from_code,
-            patch.object(panel, "_pt_from_alias_code", return_value="Phase 1") as mock_pt_from_alias_code,
+            patch.object(
+                panel, "_pt_from_alias_code", return_value="Phase 1"
+            ) as mock_pt_from_alias_code,
         ):
             # Configure the _pt_from_code mock to return different values for different inputs
             mock_pt_from_code.side_effect = lambda x: {

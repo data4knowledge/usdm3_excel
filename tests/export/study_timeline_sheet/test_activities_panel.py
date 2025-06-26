@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 from usdm3_excel.export.study_timeline_sheet.activities_panel import ActivitiesPanel
 from usdm4_excel.export.base.ct_version import CTVersion

@@ -1,6 +1,3 @@
-import importlib.metadata
-from unittest.mock import patch
-
 from usdm3_excel.__version__ import __package_version__, __model_version__
 
 
@@ -31,10 +28,10 @@ class TestVersion:
         """Test that the version matches the package version."""
         # This test just verifies that the version is defined
         from usdm3_excel.__version__ import __package_version__
-        
+
         # Verify that the version is a string
         assert isinstance(__package_version__, str)
-        
+
         # Verify that the version follows semantic versioning (x.y.z)
         parts = __package_version__.split(".")
         assert len(parts) == 3
