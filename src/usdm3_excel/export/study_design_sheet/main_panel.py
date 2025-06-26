@@ -14,7 +14,7 @@ class MainPanel(BasePanel):
         result.append(["therapeuticAreas", self._tas(design)])
         result.append(["studyDesignRationale", design.rationale])
         result.append(
-            ["studyDesignBlindingScheme", self._pt_from_code(design.blindingSchema)]
+            ["studyDesignBlindingScheme", self._pt_from_alias_code(design.blindingSchema)]
         )
         result.append(
             [
