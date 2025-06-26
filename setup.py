@@ -19,7 +19,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     package_dir={"": "src"},
     package_data={},
-    tests_require=["pytest", "pytest-cov", "pytest-mock", "python-dotenv"],
+    tests_require=["pytest", "pytest-cov", "pytest-mock", "python-dotenv", "pandas", "ruff"],
     classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python",
