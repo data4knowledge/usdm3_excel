@@ -97,20 +97,19 @@ class TestTimingPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_pt_from_code") as mock_pt_from_code,
+            patch.object(panel, "_encode_type") as mock_encode_type,
+            patch.object(panel, "_encode_to_from") as mock_encode_to_from,
         ):
-            # Configure the _pt_from_code mock to return different values for different inputs
-            mock_pt_from_code.side_effect = lambda x: {
-                mock_type: "Type1",
-                mock_relative_to_from: "ToFrom1",
-            }[x]
+            # Configure the mock methods to return expected values
+            mock_encode_type.return_value = "Type1"
+            mock_encode_to_from.return_value = "ToFrom1"
 
             # Call the _add_timing method
             panel._add_timing(collection, mock_timing, mock_timeline)
 
             # Verify that the helper methods were called with the correct arguments
-            mock_pt_from_code.assert_any_call(mock_type)
-            mock_pt_from_code.assert_any_call(mock_relative_to_from)
+            mock_encode_type.assert_called_once_with(mock_type)
+            mock_encode_to_from.assert_called_once_with(mock_relative_to_from)
 
             # Verify that the timeline's find_timepoint method was called with the correct arguments
             mock_timeline.find_timepoint.assert_any_call("from_id")
@@ -167,20 +166,19 @@ class TestTimingPanel:
 
         # Mock the helper methods
         with (
-            patch.object(panel, "_pt_from_code") as mock_pt_from_code,
+            patch.object(panel, "_encode_type") as mock_encode_type,
+            patch.object(panel, "_encode_to_from") as mock_encode_to_from,
         ):
-            # Configure the _pt_from_code mock to return different values for different inputs
-            mock_pt_from_code.side_effect = lambda x: {
-                mock_type: "Type1",
-                mock_relative_to_from: "ToFrom1",
-            }[x]
+            # Configure the mock methods to return expected values
+            mock_encode_type.return_value = "Type1"
+            mock_encode_to_from.return_value = "ToFrom1"
 
             # Call the _add_timing method
             panel._add_timing(collection, mock_timing, mock_timeline)
 
             # Verify that the helper methods were called with the correct arguments
-            mock_pt_from_code.assert_any_call(mock_type)
-            mock_pt_from_code.assert_any_call(mock_relative_to_from)
+            mock_encode_type.assert_called_once_with(mock_type)
+            mock_encode_to_from.assert_called_once_with(mock_relative_to_from)
 
             # Verify that the timeline's find_timepoint method was called with the correct arguments
             mock_timeline.find_timepoint.assert_any_call("from_id")
