@@ -46,6 +46,12 @@ class TestHeadingsPanel:
         mock_version.studyDesigns = [mock_design]
         mock_design.main_timeline.return_value = mock_timeline
         mock_timeline.timepoint_list.return_value = [mock_timepoint1, mock_timepoint2]
+        
+        # Configure the timepoint attributes that are accessed in the implementation
+        mock_timepoint1.defaultConditionId = "condition1"
+        mock_timepoint1.id = "tp1"
+        mock_timepoint2.defaultConditionId = "condition2"
+        mock_timepoint2.id = "tp2"
 
         # Mock the _add_instance method
         with patch.object(panel, "_add_instance") as mock_add_instance:
@@ -186,7 +192,7 @@ class TestHeadingsPanel:
         assert collection[1] == ["description", "Activity description"]
         assert collection[2] == ["label", "Activity label"]
         assert collection[3] == ["type", "Activity"]
-        assert collection[4] == ["default", mock_default]
+        assert collection[4] == ["default", "Default Condition"]
         assert collection[5] == ["condition", ""]
         assert collection[6] == ["epoch", "Epoch1"]
         assert collection[7] == ["encounter", "Encounter1"]
@@ -244,7 +250,7 @@ class TestHeadingsPanel:
         assert collection[1] == ["description", "Decision description"]
         assert collection[2] == ["label", "Decision label"]
         assert collection[3] == ["type", "Decision"]
-        assert collection[4] == ["default", mock_default]
+        assert collection[4] == ["default", "Default Condition"]
         assert collection[5] == ["condition", ""]
         assert collection[6] == ["epoch", ""]
         assert collection[7] == ["encounter", ""]

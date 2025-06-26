@@ -63,13 +63,10 @@ class TestMainPanel:
         with (
             patch.object(panel, "_tas", return_value="TA1, TA2") as mock_tas,
             patch.object(panel, "_pt_from_code") as mock_pt_from_code,
-            patch.object(
-                panel, "_pt_from_alias_code", return_value="Phase 1"
-            ) as mock_pt_from_alias_code,
+            patch.object(panel, "_pt_from_alias_code") as mock_pt_from_alias_code,
         ):
             # Configure the _pt_from_code mock to return different values for different inputs
             mock_pt_from_code.side_effect = lambda x: {
-                mock_blinding_schema: "Double Blind",
                 mock_intent_type1: "Treatment",
                 mock_intent_type2: "Prevention",
                 mock_sub_type1: "Safety",
@@ -79,13 +76,19 @@ class TestMainPanel:
                 mock_characteristic2: "Controlled",
                 mock_study_type: "Interventional",
             }[x]
+            
+            # Configure the _pt_from_alias_code mock to return different values for different inputs
+            mock_pt_from_alias_code.side_effect = lambda x: {
+                mock_blinding_schema: "Double Blind",
+                mock_study_phase: "Phase 1",
+            }[x]
 
             # Call the execute method
             result = panel.execute(mock_study)
 
             # Verify that the helper methods were called with the correct arguments
             mock_tas.assert_called_once_with(mock_design)
-            mock_pt_from_code.assert_any_call(mock_blinding_schema)
+            mock_pt_from_alias_code.assert_any_call(mock_blinding_schema)
             mock_pt_from_code.assert_any_call(mock_intent_type1)
             mock_pt_from_code.assert_any_call(mock_intent_type2)
             mock_pt_from_code.assert_any_call(mock_sub_type1)
@@ -94,7 +97,7 @@ class TestMainPanel:
             mock_pt_from_code.assert_any_call(mock_characteristic1)
             mock_pt_from_code.assert_any_call(mock_characteristic2)
             mock_pt_from_code.assert_any_call(mock_study_type)
-            mock_pt_from_alias_code.assert_called_once_with(mock_study_phase)
+            mock_pt_from_alias_code.assert_any_call(mock_study_phase)
 
             # Verify the result
             expected_result = [

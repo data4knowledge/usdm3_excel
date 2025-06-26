@@ -130,11 +130,9 @@ class TestIdentifiersPanel:
         mock_address.state = "State"
         mock_address.postalCode = "12345"
 
-        # Set up the country attribute with nested mocks
+        # Set up the country attribute - the code should be a string, not a mock
         mock_country = MagicMock()
-        mock_code = MagicMock()
-        mock_code.code = "US"
-        mock_country.code = mock_code
+        mock_country.code = "US"  # This should be a string, not a mock
         mock_address.country = mock_country
 
         # Call the _from_address method

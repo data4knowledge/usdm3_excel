@@ -40,6 +40,7 @@ class TestContentPanel:
         mock_study.versions = [mock_version]
         mock_version.documentVersionIds = ["doc_version_1"]
         mock_doc_version.contents = [mock_narrative_content]
+        mock_narrative_content.sectionNumber = "1.0"
 
         # Mock the helper methods
         with (
