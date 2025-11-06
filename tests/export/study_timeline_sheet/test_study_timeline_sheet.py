@@ -4,7 +4,7 @@ from usdm3_excel.export.study_timeline_sheet.study_timeline_sheet import (
     StudyTimelineSheet,
 )
 from usdm4_excel.export.base.ct_version import CTVersion
-from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
+from usdm4_excel.export.excel_table_writer.excel_table_writer import ExcelTableWriter
 
 
 class TestStudyTimelineSheet:

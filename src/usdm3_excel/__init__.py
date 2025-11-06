@@ -1,4 +1,4 @@
-import json
+from simple_error_log import Errors
 from usdm3_excel.export.study_sheet.study_sheet import StudySheet
 from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
     StudyIdentifiersSheet,
@@ -33,7 +33,7 @@ from usdm4_excel.export.configuration_sheet.configuration_sheet import (
 from usdm3_excel.export.study_timing_sheet.study_timing_sheet import StudyTimingSheet
 from usdm4_excel.export.base.empty_sheet import EmptySheet
 from usdm4_excel.export.base.ct_version import CTVersion
-from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
+from usdm4_excel.export.excel_table_writer.excel_table_writer import ExcelTableWriter
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 
@@ -42,12 +42,10 @@ class USDM3Excel:
     def to_excel(self, usdm_filepath: str, excel_filepath: str):
         ct_version = CTVersion()
         etw = ExcelTableWriter(excel_filepath, default_sheet_name="study")
-        with open(usdm_filepath) as f:
-            data = json.load(f)
         usdm = USDM4()
-        wrapper: Wrapper = usdm.from_json(data)
+        errors = Errors()
+        wrapper: Wrapper = usdm.load(usdm_filepath, errors)
         study = wrapper.study
-
         empty_sheets = {
             "studyDesignElements": [
                 "name",

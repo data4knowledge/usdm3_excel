@@ -6383,63 +6383,63 @@ study:
   - Amendment approval date
   - Protocol Approval
   - Sponsor Approval Date
-  - &id001 2020-08-18 00:00:00
+  - 18/08/2020
   - Global
 - - amendment
   - AMEND_DATE_A2
   - Amendment approval date
   - Protocol Approval
   - Sponsor Approval Date
-  - &id002 2021-03-19 00:00:00
+  - 19/03/2021
   - Global
 - - amendment
   - AMEND_DATE_A3
   - Amendment approval date
   - Protocol Approval
   - Sponsor Approval Date
-  - &id003 2021-08-31 00:00:00
+  - 31/08/2021
   - Global
 - - amendment
   - AMEND_DATE_A3-1
   - Amendment approval date
   - Protocol Approval
   - Sponsor Approval Date
-  - &id004 2022-03-18 00:00:00
+  - 18/03/2022
   - 'Country: United States of America'
 - - protocol_document
   - P_APPROVE_ORG
   - Original protocol approval date
   - Original Protocol
   - Sponsor Approval Date
-  - 2020-05-12 00:00:00
+  - 12/05/2020
   - Global
 - - protocol_document
   - P_APPROVE_A1
   - Amendment 1 approval date
   - Amendment 1
   - Sponsor Approval Date
-  - *id001
+  - 18/08/2020
   - Global
 - - protocol_document
   - P_APPROVE_A2
   - Amendment 2 approval date
   - Amendment 2
   - Sponsor Approval Date
-  - *id002
+  - 19/03/2021
   - Global
 - - protocol_document
   - P_APPROVE_A3
   - Amendment 3 approval date
   - Amendment 3
   - Sponsor Approval Date
-  - *id003
+  - 31/08/2021
   - Global
 - - protocol_document
   - P_APPROVE_A3-1
   - Amendment 3.1 approval date
   - Amendment 3.1
   - Sponsor Approval Date
-  - *id004
+  - 18/03/2022
   - 'Country: United States of America'
 - - protocol_document
   - P_APPROVE_A3
@@ -10758,7 +10758,7 @@ studyDesignTiming:
 - - TIM1
   - Screening timing
   - Screening
-  - Before
+  - BEFORE
   - SCREEN
   - D1
   - 42 Days
@@ -10767,7 +10767,7 @@ studyDesignTiming:
 - - TIM2
   - Discontinuation of zinc therapy timing
   - Discontinue Zinc
-  - Before
+  - BEFORE
   - ZINC
   - D1
   - 21 Days
@@ -10776,7 +10776,7 @@ studyDesignTiming:
 - - TIM3
   - Check in timing
   - Check in
-  - Before
+  - BEFORE
   - CHECK_IN
   - D1
   - 8 Days
@@ -10785,7 +10785,7 @@ studyDesignTiming:
 - - TIM4
   - Timing for day -7
   - Day -7
-  - Before
+  - BEFORE
   - D-7
   - D1
   - 7 Days
@@ -10794,7 +10794,7 @@ studyDesignTiming:
 - - TIM5
   - Cycle start for day -6 and -5
   - Day -6 & -5 Start
-  - After
+  - AFTER
   - D-6-5_START
   - D-7
   - 0 minutes
@@ -10803,7 +10803,7 @@ studyDesignTiming:
 - - TIM6
   - Timing for day -6 and -5
   - Day -6 & -5
-  - After
+  - AFTER
   - D-6-5
   - D-6-5_START
   - 1 Day
@@ -10812,7 +10812,7 @@ studyDesignTiming:
 - - TIM7
   - Decision for day -6 and -5
   - Day -6 & -5 Decision
-  - After
+  - AFTER
   - D-6-5_DECISION
   - D-6-5
   - 0 minutes
@@ -10821,7 +10821,7 @@ studyDesignTiming:
 - - TIM8
   - Timing for day -4
   - Day -4
-  - Before
+  - BEFORE
   - D-4
   - D1
   - 4 Days
@@ -10830,7 +10830,7 @@ studyDesignTiming:
 - - TIM9
   - Timing for day -3
   - Day -3
-  - Before
+  - BEFORE
   - D-3
   - D1
   - 3 Days
@@ -10839,7 +10839,7 @@ studyDesignTiming:
 - - TIM10
   - Timing for day -2
   - Day -2
-  - Before
+  - BEFORE
   - D-2
   - D1
   - 2 Days
@@ -10848,7 +10848,7 @@ studyDesignTiming:
 - - TIM11
   - Timing for day -1
   - Day -1
-  - Before
+  - BEFORE
   - D-1
   - D1
   - 1 Days
@@ -10857,7 +10857,7 @@ studyDesignTiming:
 - - TIM12
   - Day 1 anchor
   - Day 1
-  - Fixed
+  - FIXED
   - D1
   - D1
   - 1 Day
@@ -10866,7 +10866,7 @@ studyDesignTiming:
 - - TIM13
   - Timing for day 2
   - Day 2
-  - After
+  - AFTER
   - D2
   - D1
   - 1 Days
@@ -10875,7 +10875,7 @@ studyDesignTiming:
 - - TIM14
   - Timing for day 3
   - Day 3
-  - After
+  - AFTER
   - D3
   - D1
   - 2 Days
@@ -10884,7 +10884,7 @@ studyDesignTiming:
 - - TIM15
   - Timing for day 4
   - Day 4
-  - After
+  - AFTER
   - D4
   - D1
   - 3 Days
@@ -10893,7 +10893,7 @@ studyDesignTiming:
 - - TIM16
   - Timing for day 5
   - Day 5
-  - After
+  - AFTER
   - D5
   - D1
   - 4 Days
@@ -10902,7 +10902,7 @@ studyDesignTiming:
 - - TIM17
   - Timing for day 6
   - Day 6
-  - After
+  - AFTER
   - D6
   - D1
   - 5 Days
@@ -10911,7 +10911,7 @@ studyDesignTiming:
 - - TIM18
   - Timing for day 7
   - Day 7
-  - After
+  - AFTER
   - D7
   - D1
   - 6 Days
@@ -10920,7 +10920,7 @@ studyDesignTiming:
 - - TIM19
   - Timing for day 8
   - Day 8
-  - After
+  - AFTER
   - D8
   - D1
   - 7 Days
@@ -10929,7 +10929,7 @@ studyDesignTiming:
 - - TIM20
   - Timing for day 9
   - Day 9
-  - After
+  - AFTER
   - D9
   - D1
   - 8 Days
@@ -10938,7 +10938,7 @@ studyDesignTiming:
 - - TIM21
   - Timing for day 10
   - Day 10
-  - After
+  - AFTER
   - D10
   - D1
   - 9 Days
@@ -10947,7 +10947,7 @@ studyDesignTiming:
 - - TIM22
   - Timing for day 11
   - Day 11
-  - After
+  - AFTER
   - D11
   - D1
   - 10 Days
@@ -10956,7 +10956,7 @@ studyDesignTiming:
 - - TIM23
   - Timing for day 12
   - Day 12
-  - After
+  - AFTER
   - D12
   - D1
   - 11 Days
@@ -10965,7 +10965,7 @@ studyDesignTiming:
 - - TIM24
   - Timing for day 13
   - Day 13
-  - After
+  - AFTER
   - D13
   - D1
   - 12 Days
@@ -10974,7 +10974,7 @@ studyDesignTiming:
 - - TIM25
   - Timing for day 14
   - Day 14
-  - After
+  - AFTER
   - D14
   - D1
   - 13 Days
@@ -10983,7 +10983,7 @@ studyDesignTiming:
 - - TIM26
   - Timing for day 15
   - Day 15
-  - After
+  - AFTER
   - D15
   - D1
   - 14 Days
@@ -10992,7 +10992,7 @@ studyDesignTiming:
 - - TIM27
   - Timing for day 16
   - Day 16
-  - After
+  - AFTER
   - D16
   - D1
   - 15 Days
@@ -11001,7 +11001,7 @@ studyDesignTiming:
 - - TIM28
   - Timing for day 17
   - Day 17
-  - After
+  - AFTER
   - D17
   - D1
   - 16 Days
@@ -11010,7 +11010,7 @@ studyDesignTiming:
 - - TIM29
   - Timing for day 18
   - Day 18
-  - After
+  - AFTER
   - D18
   - D1
   - 17 Days
@@ -11019,7 +11019,7 @@ studyDesignTiming:
 - - TIM30
   - Timing for day 19
   - Day 19
-  - After
+  - AFTER
   - D19
   - D1
   - 18 Days
@@ -11028,7 +11028,7 @@ studyDesignTiming:
 - - TIM31
   - Timing for day 20
   - Day 20
-  - After
+  - AFTER
   - D20
   - D1
   - 19 Days
@@ -11037,7 +11037,7 @@ studyDesignTiming:
 - - TIM32
   - Timing for day 21
   - Day 21
-  - After
+  - AFTER
   - D21
   - D1
   - 20 Days
@@ -11046,7 +11046,7 @@ studyDesignTiming:
 - - TIM33
   - Timing for day 22
   - Day 22
-  - After
+  - AFTER
   - D22
   - D1
   - 21 Days
@@ -11055,7 +11055,7 @@ studyDesignTiming:
 - - TIM34
   - Timing for day 23
   - Day 23
-  - After
+  - AFTER
   - D23
   - D1
   - 22 Days
@@ -11064,7 +11064,7 @@ studyDesignTiming:
 - - TIM35
   - Timing for day 24
   - Day 24
-  - After
+  - AFTER
   - D24
   - D1
   - 23 Days
@@ -11073,7 +11073,7 @@ studyDesignTiming:
 - - TIM36
   - Timing for day 25
   - Day 25
-  - After
+  - AFTER
   - D25
   - D1
   - 24 Days
@@ -11082,7 +11082,7 @@ studyDesignTiming:
 - - TIM37
   - Timing for day 26
   - Day 26
-  - After
+  - AFTER
   - D26
   - D1
   - 25 Days
@@ -11091,7 +11091,7 @@ studyDesignTiming:
 - - TIM38
   - Timing for day 27
   - Day 27
-  - After
+  - AFTER
   - D27
   - D1
   - 26 Days
@@ -11100,7 +11100,7 @@ studyDesignTiming:
 - - TIM39
   - Timing for day 28
   - Day 28
-  - After
+  - AFTER
   - D28
   - D1
   - 27 Days
@@ -11109,7 +11109,7 @@ studyDesignTiming:
 - - TIM40
   - Timing for day 29
   - Day 29
-  - After
+  - AFTER
   - D29
   - D1
   - 28 Days
@@ -11118,7 +11118,7 @@ studyDesignTiming:
 - - TIM41
   - Timing for day 30
   - Day 30
-  - After
+  - AFTER
   - D30
   - D1
   - 29 Days
@@ -11127,7 +11127,7 @@ studyDesignTiming:
 - - TIM42
   - Timing for day 31
   - Day 31
-  - After
+  - AFTER
   - D31
   - D1
   - 30 Days
@@ -11136,7 +11136,7 @@ studyDesignTiming:
 - - TIM43
   - Timing for day 32
   - Day 32
-  - After
+  - AFTER
   - D32
   - D1
   - 31 Days
@@ -11145,7 +11145,7 @@ studyDesignTiming:
 - - TIM44
   - Timing for day 33
   - Day 33
-  - After
+  - AFTER
   - D33
   - D1
   - 32 Days
@@ -11154,7 +11154,7 @@ studyDesignTiming:
 - - TIM45
   - Timing for day 34
   - Day 34
-  - After
+  - AFTER
   - D34
   - D1
   - 33 Days
@@ -11163,7 +11163,7 @@ studyDesignTiming:
 - - TIM46
   - Timing for day 35
   - Day 35
-  - After
+  - AFTER
   - D35
   - D1
   - 34 Days
@@ -11172,7 +11172,7 @@ studyDesignTiming:
 - - TIM47
   - Timing for day 36
   - Day 36
-  - After
+  - AFTER
   - D36
   - D1
   - 35 Days
@@ -11181,7 +11181,7 @@ studyDesignTiming:
 - - TIM48
   - Timing for day 37
   - Day 37
-  - After
+  - AFTER
   - D37
   - D1
   - 36 Days
@@ -11190,7 +11190,7 @@ studyDesignTiming:
 - - TIM49
   - Timing for day 38
   - Day 38
-  - After
+  - AFTER
   - D38
   - D1
   - 37 Days
@@ -11199,7 +11199,7 @@ studyDesignTiming:
 - - TIM50
   - Timing for day 39
   - Day 39
-  - After
+  - AFTER
   - D39
   - D1
   - 38 Days
@@ -11208,7 +11208,7 @@ studyDesignTiming:
 - - TIM51
   - Timing for day 40
   - Day 40
-  - After
+  - AFTER
   - D40
   - D1
   - 39 Days
@@ -11217,7 +11217,7 @@ studyDesignTiming:
 - - TIM52
   - Timing for End of Study
   - End of Study
-  - After
+  - AFTER
   - EOS
   - D1
   - 53 Days
@@ -11226,7 +11226,7 @@ studyDesignTiming:
 - - TIM64
   - Adverse event anchor
   - Adverse event
-  - Fixed
+  - FIXED
   - AE
   - AE
   - 0 minutes
@@ -11235,7 +11235,7 @@ studyDesignTiming:
 - - TIM65
   - Early termination anchor
   - Early termination
-  - Fixed
+  - FIXED
   - ET
   - ET
   - 0 minutes
@@ -11244,7 +11244,7 @@ studyDesignTiming:
 - - TIM53
   - PK/PD Profile -30 minutes
   - -30 minutes
-  - Before
+  - BEFORE
   - PKPD -0-5
   - PKPD 0
   - 30 minutes
@@ -11253,7 +11253,7 @@ studyDesignTiming:
 - - TIM54
   - PK/PD Profile Start
   - Start
-  - Fixed
+  - FIXED
   - PKPD 0
   - PKPD 0
   - 0 minutes
@@ -11262,7 +11262,7 @@ studyDesignTiming:
 - - TIM55
   - PK/PD Profile 1 hours
   - 1 hours
-  - After
+  - AFTER
   - PKPD 1
   - PKPD 0
   - 1 Hours
@@ -11271,7 +11271,7 @@ studyDesignTiming:
 - - TIM56
   - PK/PD Profile 2 hours
   - 2 hours
-  - After
+  - AFTER
   - PKPD 2
   - PKPD 0
   - 2 Hours
@@ -11280,7 +11280,7 @@ studyDesignTiming:
 - - TIM57
   - PK/PD Profile 3 hours
   - 3 hours
-  - After
+  - AFTER
   - PKPD 3
   - PKPD 0
   - 3 Hours
@@ -11289,7 +11289,7 @@ studyDesignTiming:
 - - TIM58
   - PK/PD Profile 4 hours
   - 4 hours
-  - After
+  - AFTER
   - PKPD 4
   - PKPD 0
   - 4 Hours
@@ -11298,7 +11298,7 @@ studyDesignTiming:
 - - TIM59
   - PK/PD Profile 5 hours
   - 5 hours
-  - After
+  - AFTER
   - PKPD 5
   - PKPD 0
   - 5 Hours
@@ -11307,7 +11307,7 @@ studyDesignTiming:
 - - TIM60
   - PK/PD Profile 6 hours
   - 6 hours
-  - After
+  - AFTER
   - PKPD 6
   - PKPD 0
   - 6 Hours
@@ -11316,7 +11316,7 @@ studyDesignTiming:
 - - TIM61
   - PK/PD Profile 8 hours
   - 8 hours
-  - After
+  - AFTER
   - PKPD 8
   - PKPD 0
   - 8 Hours
@@ -11325,7 +11325,7 @@ studyDesignTiming:
 - - TIM62
   - PK/PD Profile 12 hours
   - 12 hours
-  - After
+  - AFTER
   - PKPD 12
   - PKPD 0
   - 12 Hours
@@ -11334,7 +11334,7 @@ studyDesignTiming:
 - - TIM63
   - PK/PD Profile 24 hours
   - 24 hours
-  - After
+  - AFTER
   - PKPD 24
   - PKPD 0
   - 24 Hours
@@ -11343,7 +11343,7 @@ studyDesignTiming:
 - - TIM66
   - Unscheduled timing
   - Unscheduled
-  - Fixed
+  - FIXED
   - UNSCHEDULED
   - UNSCHEDULED
   - 0 minutes

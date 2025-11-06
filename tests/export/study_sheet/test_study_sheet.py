@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 from usdm3_excel.export.study_sheet.study_sheet import StudySheet
 from usdm4_excel.export.base.ct_version import CTVersion
-from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
+from usdm4_excel.export.excel_table_writer.excel_table_writer import ExcelTableWriter
 
 
 class TestStudySheet:

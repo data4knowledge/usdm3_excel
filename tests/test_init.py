@@ -1,10 +1,10 @@
-from unittest.mock import MagicMock, patch, mock_open
+import os
 import json
 import pytest
-
+from unittest.mock import MagicMock, patch, mock_open
 from usdm3_excel import USDM3Excel
 from usdm4_excel.export.base.ct_version import CTVersion
-from usdm4_excel.excel_table_writer.excel_table_writer import ExcelTableWriter
+from usdm4_excel.export.excel_table_writer.excel_table_writer import ExcelTableWriter
 
 
 class TestUSDM3Excel:
@@ -46,7 +46,7 @@ class TestUSDM3Excel:
                 "usdm4_excel.export.base.ct_version.CTVersion"
             ) as mock_ct_version_class,
             patch(
-                "usdm4_excel.excel_table_writer.excel_table_writer.ExcelTableWriter",
+                "usdm4_excel.export.excel_table_writer.excel_table_writer.ExcelTableWriter",
                 return_value=mock_etw,
             ),
             patch("usdm4.USDM4") as mock_usdm4_class,
@@ -99,7 +99,8 @@ class TestUSDM3Excel:
             ]
 
             # Call the to_excel method
-            usdm3_excel.to_excel("test.json", "test.xlsx")
+            output_file = "tests/test_files/test.xlsx"
+            usdm3_excel.to_excel("test.json", output_file)
 
             # Verify that the file was opened
             m.assert_called_once_with("test.json")
@@ -117,3 +118,10 @@ class TestUSDM3Excel:
 
             # Verify that the ExcelTableWriter's save method was called
             mock_etw.save.assert_called_once()
+            
+            # Clean up
+            try:
+                os.remove(output_file)
+                print(f"File {output_file} deleted")
+            except Exception as e:
+                print(f"Exception raised delting file {e}")
