@@ -6611,12 +6611,12 @@ studyDesign:
   - null
   - null
   - null
-- - studyPhase
-  - Phase II Trial
-  - null
-  - null
-  - null
-- - spare
+- - Epoch/Arms
+  - Screening
+  - Check In
+  - Treatment
+  - Follow-Up
+- - 15mg-30mg
   - null
   - null
   - null

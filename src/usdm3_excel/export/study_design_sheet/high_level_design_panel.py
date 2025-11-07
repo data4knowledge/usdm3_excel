@@ -12,7 +12,7 @@ class HighLevelDesignPanel(CollectionPanel):
         for epoch in design.epochs:
             row.append(epoch.name)
             row_n.append("")
-            collection.append(row)
+        collection.append(row)
         for arm in design.arms:
             row = row_n.copy()
             row[0] = arm.name

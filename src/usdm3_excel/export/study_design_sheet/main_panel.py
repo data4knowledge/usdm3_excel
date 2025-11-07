@@ -40,9 +40,9 @@ class MainPanel(BasePanel):
         )
         result.append(["mainTimeline", "mainTimeline"])
         result.append(["otherTimelines", ""])
-        result.append(["studyType", self._pt_from_code(design.studyType)])
-        result.append(["studyPhase", self._pt_from_alias_code(design.studyPhase)])
-        result.append(["spare", ""])
+        # result.append(["studyType", self._pt_from_code(design.studyType)])
+        # result.append(["studyPhase", self._pt_from_alias_code(design.studyPhase)])
+        # result.append(["spare", ""])
         return result
 
     def _tas(self, design: StudyDesign) -> str:

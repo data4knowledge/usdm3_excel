@@ -58,7 +58,6 @@ class TestHighLevelDesignPanel:
         # The implementation adds the header row for each epoch
         expected_result = [
             ["Epoch/Arms", "Epoch1", "Epoch2"],
-            ["Epoch/Arms", "Epoch1", "Epoch2"],
             ["Arm1", "", ""],
             ["Arm2", "", ""],
         ]
@@ -89,7 +88,7 @@ class TestHighLevelDesignPanel:
 
         # Verify the result
         # When there are no epochs and no arms, the implementation returns an empty list
-        expected_result = []
+        expected_result = [['Epoch/Arms']]
         assert result == expected_result
 
     def test_execute_with_epochs_no_arms(self):
@@ -124,7 +123,6 @@ class TestHighLevelDesignPanel:
         # The implementation adds the header row for each epoch
         expected_result = [
             ["Epoch/Arms", "Epoch1", "Epoch2"],
-            ["Epoch/Arms", "Epoch1", "Epoch2"],
         ]
         assert result == expected_result
 
@@ -158,8 +156,5 @@ class TestHighLevelDesignPanel:
 
         # Verify the result
         # The implementation doesn't add the header row when there are no epochs
-        expected_result = [
-            ["Arm1"],
-            ["Arm2"],
-        ]
+        expected_result = [['Epoch/Arms'], ['Arm1'], ['Arm2']]
         assert result == expected_result

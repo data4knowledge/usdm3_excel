@@ -401,10 +401,10 @@ studyDesign:
   - null
   - null
   - null
-- - studyPhase
-  - Phase III Trial
-  - null
-  - null
+- - Epoch/Arms
+  - EPOCH-1
+  - EPOCH-2
+  - EPOCH-3
 - - spare
   - null
   - null

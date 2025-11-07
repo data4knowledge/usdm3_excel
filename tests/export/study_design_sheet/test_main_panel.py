@@ -96,8 +96,8 @@ class TestMainPanel:
             mock_pt_from_code.assert_any_call(mock_model)
             mock_pt_from_code.assert_any_call(mock_characteristic1)
             mock_pt_from_code.assert_any_call(mock_characteristic2)
-            mock_pt_from_code.assert_any_call(mock_study_type)
-            mock_pt_from_alias_code.assert_any_call(mock_study_phase)
+            # mock_pt_from_code.assert_any_call(mock_study_type)
+            # mock_pt_from_alias_code.assert_any_call(mock_study_phase)
 
             # Verify the result
             expected_result = [
@@ -113,9 +113,9 @@ class TestMainPanel:
                 ["characteristics", "Randomized, Controlled"],
                 ["mainTimeline", "mainTimeline"],
                 ["otherTimelines", ""],
-                ["studyType", "Interventional"],
-                ["studyPhase", "Phase 1"],
-                ["spare", ""],
+                # ["studyType", "Interventional"],
+                # ["studyPhase", "Phase 1"],
+                # ["spare", ""],
             ]
             assert result == expected_result
 
