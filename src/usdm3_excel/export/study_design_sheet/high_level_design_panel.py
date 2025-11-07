@@ -13,8 +13,13 @@ class HighLevelDesignPanel(CollectionPanel):
             row.append(epoch.name)
             row_n.append("")
         collection.append(row)
-        for arm in design.arms:
+        if design.arms:
+            for arm in design.arms:
+                row = row_n.copy()
+                row[0] = arm.name
+                collection.append(row)
+        else:
             row = row_n.copy()
-            row[0] = arm.name
+            row[0] = "DEFAULT_ARM"
             collection.append(row)
         return collection
