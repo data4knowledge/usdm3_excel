@@ -75,7 +75,7 @@ class TimingPanel(CollectionPanel):
         else:
             if units_char in p_units_map:
                 units_str = p_units_map[units_char]
-        if units_char:
+        if units_str:
             match = re.search(r"\d+", value)
             if match:
                 return f"{match.group()} {units_str}"

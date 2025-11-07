@@ -130,6 +130,118 @@ class TestTimingPanel:
             assert collection[0]["window"] == "Window1"
             assert collection[0]["toFrom"] == "ToFrom1"
 
+    def test_decode_iso8601_duration_years(self):
+        """Test _decode_iso8601_duration with years."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("P1Y") == "1 Years"
+        assert panel._decode_iso8601_duration("P5Y") == "5 Years"
+        assert panel._decode_iso8601_duration("P10Y") == "10 Years"
+
+    def test_decode_iso8601_duration_months(self):
+        """Test _decode_iso8601_duration with months."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("P1M") == "1 Months"
+        assert panel._decode_iso8601_duration("P6M") == "6 Months"
+        assert panel._decode_iso8601_duration("P12M") == "12 Months"
+
+    def test_decode_iso8601_duration_weeks(self):
+        """Test _decode_iso8601_duration with weeks."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("P1W") == "1 Weeks"
+        assert panel._decode_iso8601_duration("P4W") == "4 Weeks"
+        assert panel._decode_iso8601_duration("P52W") == "52 Weeks"
+
+    def test_decode_iso8601_duration_days(self):
+        """Test _decode_iso8601_duration with days."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("P1D") == "1 Days"
+        assert panel._decode_iso8601_duration("P7D") == "7 Days"
+        assert panel._decode_iso8601_duration("P30D") == "30 Days"
+        assert panel._decode_iso8601_duration("P365D") == "365 Days"
+
+    def test_decode_iso8601_duration_hours(self):
+        """Test _decode_iso8601_duration with hours (PT prefix)."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("PT1H") == "1 Hours"
+        assert panel._decode_iso8601_duration("PT12H") == "12 Hours"
+        assert panel._decode_iso8601_duration("PT24H") == "24 Hours"
+
+    def test_decode_iso8601_duration_minutes(self):
+        """Test _decode_iso8601_duration with minutes (PT prefix)."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("PT1M") == "1 Minutes"
+        assert panel._decode_iso8601_duration("PT30M") == "30 Minutes"
+        assert panel._decode_iso8601_duration("PT60M") == "60 Minutes"
+
+    def test_decode_iso8601_duration_seconds(self):
+        """Test _decode_iso8601_duration with seconds (PT prefix)."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("PT1S") == "1 Seconds"
+        assert panel._decode_iso8601_duration("PT30S") == "30 Seconds"
+        assert panel._decode_iso8601_duration("PT3600S") == "3600 Seconds"
+
+    def test_decode_iso8601_duration_lowercase(self):
+        """Test _decode_iso8601_duration with lowercase prefixes."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        # PT prefix should work with lowercase (method uses .upper())
+        assert panel._decode_iso8601_duration("pt1H") == "1 Hours"
+        assert panel._decode_iso8601_duration("Pt5M") == "5 Minutes"
+
+    def test_decode_iso8601_duration_invalid_format(self):
+        """Test _decode_iso8601_duration with invalid formats."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        # Invalid unit character returns with None as units_str
+        assert panel._decode_iso8601_duration("P1X") == "1 Day"
+        assert panel._decode_iso8601_duration("PT1Q") == "1 Day"
+        
+    def test_decode_iso8601_duration_no_number(self):
+        """Test _decode_iso8601_duration with no numeric value returns default."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        # No number should return default
+        assert panel._decode_iso8601_duration("PD") == "1 Day"
+        assert panel._decode_iso8601_duration("PTH") == "1 Day"
+
+    def test_decode_iso8601_duration_empty_string(self):
+        """Test _decode_iso8601_duration with empty string raises IndexError."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        # Empty string causes IndexError due to value[-1] access
+        try:
+            result = panel._decode_iso8601_duration("")
+            assert False, f"Expected IndexError but got result: {result}"
+        except IndexError:
+            pass  # Expected behavior
+
+    def test_decode_iso8601_duration_large_numbers(self):
+        """Test _decode_iso8601_duration with large numeric values."""
+        ct_version = CTVersion()
+        panel = TimingPanel(ct_version)
+        
+        assert panel._decode_iso8601_duration("P100Y") == "100 Years"
+        assert panel._decode_iso8601_duration("P999D") == "999 Days"
+        assert panel._decode_iso8601_duration("PT1000H") == "1000 Hours"
+
     def test_add_timing_no_timepoints(self):
         """Test the _add_timing method when no timepoints are found."""
         # Create a CTVersion instance
