@@ -176,4 +176,4 @@ class TestIdentifiersPanel:
         result = panel._from_address(mock_address)
 
         # Verify the result
-        assert result == "123 Main St|District|City|State|12345| "
+        assert result == "123 Main St|District|City|State|12345|"
