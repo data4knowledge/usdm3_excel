@@ -54,7 +54,5 @@ class IdentifiersPanel(CollectionPanel):
         items.append(value if value else "")
 
     def _map_org_type(self, code: str) -> str:
-        code_map = {
-            "Pharmaceutical Company": "Clinical Study Sponsor"
-        }
+        code_map = {"Pharmaceutical Company": "Clinical Study Sponsor"}
         return code_map[code] if code in code_map else code

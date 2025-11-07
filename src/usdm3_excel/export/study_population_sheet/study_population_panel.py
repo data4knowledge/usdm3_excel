@@ -8,22 +8,29 @@ class StudyPopulationPanel(CollectionPanel):
         self._add_default(collection)
         return super().execute(
             collection,
-            ["level", "name", "description", "label", "plannedCompletionNumber", "plannedEnrollmentNumber", "plannedAge", "plannedSexOfParticipants", "includesHealthySubjects"]
+            [
+                "level",
+                "name",
+                "description",
+                "label",
+                "plannedCompletionNumber",
+                "plannedEnrollmentNumber",
+                "plannedAge",
+                "plannedSexOfParticipants",
+                "includesHealthySubjects",
+            ],
         )
 
     def _add_default(self, collection: list):
         data = {
-        "level": "Main",
-            "name":"POP1",
+            "level": "Main",
+            "name": "POP1",
             "description": "Default Population",
             "label": "Default Population",
             "plannedCompletionNumber": "0",
             "plannedEnrollmentNumber": "0",
             "plannedAge": "18..100 years",
             "plannedSexOfParticipants": "BOTH",
-            "includesHealthySubjects": "N"
+            "includesHealthySubjects": "N",
         }
         collection.append(data)
-
-
-

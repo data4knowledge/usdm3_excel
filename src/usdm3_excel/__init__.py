@@ -1,7 +1,9 @@
 import os
 from simple_error_log import Errors
 from usdm3_excel.export.study_sheet.study_sheet import StudySheet
-from usdm3_excel.export.study_population_sheet.study_population_sheet import StudyPopulationSheet
+from usdm3_excel.export.study_population_sheet.study_population_sheet import (
+    StudyPopulationSheet,
+)
 from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
     StudyIdentifiersSheet,
 )
@@ -149,4 +151,3 @@ class USDM3Excel:
             os.remove(excel_filepath)
         except Exception:
             pass
-    

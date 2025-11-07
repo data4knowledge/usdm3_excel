@@ -46,7 +46,7 @@ class TestHeadingsPanel:
         mock_version.studyDesigns = [mock_design]
         mock_design.main_timeline.return_value = mock_timeline
         mock_timeline.timepoint_list.return_value = [mock_timepoint1, mock_timepoint2]
-        
+
         # Configure the timepoint attributes that are accessed in the implementation
         mock_timepoint1.defaultConditionId = "condition1"
         mock_timepoint1.id = "tp1"

@@ -55,19 +55,28 @@ class TimingPanel(CollectionPanel):
         return mapping[code.code]
 
     def _decode_iso8601_duration(self, value: str) -> str:
-        units_map = {
+        p_units_map = {
             "Y": "Years",
             "M": "Months",
             "W": "Weeks",
             "D": "Days",
+        }
+        pt_units_map = {
             "H": "Hours",
             "M": "Minutes",
             "S": "Seconds",
         }
+        units_str = None
         units_char = value[-1]
-        if units_char in units_map:
-            units_str = units_map[units_char]
-            match = re.search(r'\d+', value)
+        p_type = value[0:2]
+        if p_type.upper() == "PT":
+            if units_char in pt_units_map:
+                units_str = pt_units_map[units_char]
+        else:
+            if units_char in p_units_map:
+                units_str = p_units_map[units_char]
+        if units_char:
+            match = re.search(r"\d+", value)
             if match:
                 return f"{match.group()} {units_str}"
         return "1 Day"

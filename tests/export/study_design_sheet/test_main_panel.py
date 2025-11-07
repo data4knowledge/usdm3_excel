@@ -76,7 +76,7 @@ class TestMainPanel:
                 mock_characteristic2: "Controlled",
                 mock_study_type: "Interventional",
             }[x]
-            
+
             # Configure the _pt_from_alias_code mock to return different values for different inputs
             mock_pt_from_alias_code.side_effect = lambda x: {
                 mock_blinding_schema: "Double Blind",

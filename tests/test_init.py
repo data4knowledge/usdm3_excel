@@ -118,7 +118,7 @@ class TestUSDM3Excel:
 
             # Verify that the ExcelTableWriter's save method was called
             mock_etw.save.assert_called_once()
-            
+
             # Clean up
             try:
                 os.remove(output_file)

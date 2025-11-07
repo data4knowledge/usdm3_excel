@@ -88,7 +88,7 @@ class TestHighLevelDesignPanel:
 
         # Verify the result
         # When there are no epochs and no arms, the implementation returns a default arm
-        expected_result = [['Epoch/Arms'], ['DEFAULT_ARM']]
+        expected_result = [["Epoch/Arms"], ["DEFAULT_ARM"]]
         assert result == expected_result
 
     def test_execute_with_epochs_no_arms(self):
@@ -157,5 +157,5 @@ class TestHighLevelDesignPanel:
 
         # Verify the result
         # The implementation doesn't add the header row when there are no epochs
-        expected_result = [['Epoch/Arms'], ['Arm1'], ['Arm2']]
+        expected_result = [["Epoch/Arms"], ["Arm1"], ["Arm2"]]
         assert result == expected_result

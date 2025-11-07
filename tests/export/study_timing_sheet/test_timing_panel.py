@@ -124,7 +124,9 @@ class TestTimingPanel:
             assert collection[0]["type"] == "Type1"
             assert collection[0]["from"] == "From1"
             assert collection[0]["to"] == "To1"
-            assert collection[0]["timingValue"] == "1 Days"  # ISO 8601 duration P1D is converted to "1 Days"
+            assert (
+                collection[0]["timingValue"] == "1 Days"
+            )  # ISO 8601 duration P1D is converted to "1 Days"
             assert collection[0]["window"] == "Window1"
             assert collection[0]["toFrom"] == "ToFrom1"
 
@@ -194,6 +196,8 @@ class TestTimingPanel:
             assert collection[0]["type"] == "Type1"
             assert collection[0]["from"] == ""
             assert collection[0]["to"] == ""
-            assert collection[0]["timingValue"] == "1 Days"  # ISO 8601 duration P1D is converted to "1 Days"
+            assert (
+                collection[0]["timingValue"] == "1 Days"
+            )  # ISO 8601 duration P1D is converted to "1 Days"
             assert collection[0]["window"] == "Window1"
             assert collection[0]["toFrom"] == "ToFrom1"
