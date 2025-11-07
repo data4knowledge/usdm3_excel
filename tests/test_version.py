@@ -1,4 +1,4 @@
-from usdm3_excel.__version__ import __package_version__, __model_version__
+from usdm3_excel.__info__ import __package_version__, __model_version__
 
 
 class TestVersion:
@@ -27,7 +27,7 @@ class TestVersion:
     def test_version_matches_package(self):
         """Test that the version matches the package version."""
         # This test just verifies that the version is defined
-        from usdm3_excel.__version__ import __package_version__
+        from usdm3_excel.__info__ import __package_version__
 
         # Verify that the version is a string
         assert isinstance(__package_version__, str)
