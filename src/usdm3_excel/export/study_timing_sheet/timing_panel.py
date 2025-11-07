@@ -1,3 +1,4 @@
+import re
 from usdm4.api.study import Study
 from usdm4.api.timing import Timing
 from usdm4.api.code import Code
@@ -28,34 +29,6 @@ class TimingPanel(CollectionPanel):
             ],
         )
 
-    # def type_to_v3(self, pt: str) -> str:
-    #     if pt == "Fixed Reference":
-    #         return "Fixed"
-    #     return pt
-
-    # def toFrom_to_v3(self, pt: str) -> str:
-    #     if pt == "Start to Start":
-    #         return "S2S"
-    #     return pt
-
-    # def timingValue_to_v3(self, pt: str) -> str:
-    #     if pt == "TBD":
-    #         return "1 day"
-    #     return pt
-
-    # def _add_timing(self, collection: list, item: Timing, timeline: ScheduleTimeline):
-    #     data = item.model_dump()
-    #     data["type"] = self.type_to_v3(self._pt_from_code(item.type))
-    #     from_tp = timeline.find_timepoint(item.relativeFromScheduledInstanceId)
-    #     data["from"] = from_tp.name if from_tp else ""
-    #     to_tp = timeline.find_timepoint(item.relativeToScheduledInstanceId)
-    #     # print("to_tp", to_tp, "should not be blank")
-    #     data["to"] = to_tp.name if to_tp else ""
-    #     data["timingValue"] = self.timingValue_to_v3(item.valueLabel)
-    #     data["window"] = item.windowLabel
-    #     data["toFrom"] = self.toFrom_to_v3(self._pt_from_code(item.relativeToFrom))
-    #     collection.append(data)
-
     def _add_timing(self, collection: list, item: Timing, timeline: ScheduleTimeline):
         data = item.model_dump()
         data["type"] = self._encode_type(item.type)
@@ -63,7 +36,7 @@ class TimingPanel(CollectionPanel):
         data["from"] = from_tp.name if from_tp else ""
         to_tp = timeline.find_timepoint(item.relativeToScheduledInstanceId)
         data["to"] = to_tp.name if to_tp else ""
-        data["timingValue"] = item.valueLabel
+        data["timingValue"] = self._decode_iso8601_duration(item.value)
         data["window"] = item.windowLabel
         data["toFrom"] = self._encode_to_from(item.relativeToFrom)
         collection.append(data)
@@ -80,3 +53,21 @@ class TimingPanel(CollectionPanel):
             "C201352": "E2E",
         }
         return mapping[code.code]
+
+    def _decode_iso8601_duration(self, value: str) -> str:
+        units_map = {
+            "Y": "Years",
+            "M": "Months",
+            "W": "Weeks",
+            "D": "Days",
+            "H": "Hours",
+            "M": "Minutes",
+            "S": "Seconds",
+        }
+        units_char = value[-1]
+        if units_char in units_map:
+            units_str = units_map[units_char]
+            match = re.search(r'\d+', value)
+            if match:
+                return f"{match.group()} {units_str}"
+        return "1 Day"
