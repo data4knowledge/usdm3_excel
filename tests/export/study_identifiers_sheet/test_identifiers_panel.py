@@ -139,7 +139,7 @@ class TestIdentifiersPanel:
         result = panel._from_address(mock_address)
 
         # Verify the result
-        assert result == "123 Main St|Suite 100|District|City|State|12345|US"
+        assert result == "123 Main St, Suite 100|District|City|State|12345|US"
 
     def test_from_address_without_address(self):
         """Test the _from_address method with None address."""
@@ -176,4 +176,4 @@ class TestIdentifiersPanel:
         result = panel._from_address(mock_address)
 
         # Verify the result
-        assert result == "123 Main St|District|City|State|12345|"
+        assert result == "123 Main St|District|City|State|12345| "

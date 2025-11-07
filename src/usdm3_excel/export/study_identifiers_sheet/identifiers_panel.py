@@ -32,7 +32,7 @@ class IdentifiersPanel(CollectionPanel):
         data["organizationIdentifierScheme"] = data["identifierScheme"]
         data["organizationIdentifier"] = data["identifier"]
         data["organizationName"] = data["name"]
-        data["organizationType"] = self._pt_from_code(org.type)
+        data["organizationType"] = self._map_org_type(self._pt_from_code(org.type))
         data["organizationAddress"] = self._from_address(org.legalAddress)
         data["studyIdentifier"] = item.text
         collection.append(data)
@@ -40,11 +40,21 @@ class IdentifiersPanel(CollectionPanel):
     def _from_address(self, address: Address):
         if address is None:
             return "|||||"
-        items = address.lines
-        items.append(address.district)
-        items.append(address.city)
-        items.append(address.state)
-        items.append(address.postalCode)
+        lines_to_line = (", ").join(address.lines)
+        items = [lines_to_line if lines_to_line else ""]
+        self._append_address_item(items, address.district)
+        self._append_address_item(items, address.city)
+        self._append_address_item(items, address.state)
+        self._append_address_item(items, address.postalCode)
         code = address.country.code if address.country else ""
-        items.append(code)
+        self._append_address_item(items, code)
         return ("|").join(items)
+
+    def _append_address_item(self, items: list[str], value: str) -> None:
+        items.append(value if value else "")
+
+    def _map_org_type(self, code: str) -> str:
+        code_map = {
+            "Pharmaceutical Company": "Clinical Study Sponsor"
+        }
+        return code_map[code] if code in code_map else code

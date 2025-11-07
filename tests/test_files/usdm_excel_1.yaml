@@ -11355,25 +11355,25 @@ studyIdentifiers:
   - ALEXION
   - Clinical Study Sponsor
   - ALXN1840-WD-204
-  - 121 Seaport Boulevard||Boston|MA|02210|USA
+  - 121 Seaport Boulevard| |Boston|MA|02210|USA
 - - USGOV
   - CT-GOV
   - CT-GOV
   - Study Registry
   - NCT04573309
-  - 8600 Rockville Pike||Bethesda|MD|20894|USA
+  - 8600 Rockville Pike| |Bethesda|MD|20894|USA
 - - EU
   - EUDRACT
   - EMA
   - Study Registry
   - 2020-001104-41
-  - Domenico Scarlattilaan 6||Amsterdam||1083 HS|NLD
+  - Domenico Scarlattilaan 6| |Amsterdam| |1083 HS|NLD
 - - USGOV
   - FDA
   - FDA
   - Regulatory Agency
   - '119006'
-  - 10903 New Hampshire Ave||Silver Spring|MD|20903|USA
+  - 10903 New Hampshire Ave| |Silver Spring|MD|20903|USA
 studyOrganizations:
 - - DUNS
   - '794325824'
