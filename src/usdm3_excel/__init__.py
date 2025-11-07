@@ -1,5 +1,7 @@
+import os
 from simple_error_log import Errors
 from usdm3_excel.export.study_sheet.study_sheet import StudySheet
+from usdm3_excel.export.study_population_sheet.study_population_sheet import StudyPopulationSheet
 from usdm3_excel.export.study_identifiers_sheet.study_identifiers_sheet import (
     StudyIdentifiersSheet,
 )
@@ -41,6 +43,7 @@ from usdm4.api.wrapper import Wrapper
 class USDM3Excel:
     def to_excel(self, usdm_filepath: str, excel_filepath: str):
         ct_version = CTVersion()
+        self._remove_exisitng_file(excel_filepath)
         etw = ExcelTableWriter(excel_filepath, default_sheet_name="study")
         usdm = USDM4()
         errors = Errors()
@@ -125,6 +128,7 @@ class USDM3Excel:
 
         for klass in [
             StudySheet,
+            StudyPopulationSheet,
             StudyIdentifiersSheet,
             StudyContentSheet,
             StudyActivitiesSheet,
@@ -139,3 +143,10 @@ class USDM3Excel:
         ]:
             klass(ct_version, etw).save(study)
         etw.save()
+
+    def _remove_exisitng_file(self, excel_filepath: str) -> None:
+        try:
+            os.remove(excel_filepath)
+        except Exception:
+            pass
+    
