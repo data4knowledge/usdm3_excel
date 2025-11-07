@@ -87,8 +87,8 @@ class TestHighLevelDesignPanel:
         result = panel.execute(mock_study)
 
         # Verify the result
-        # When there are no epochs and no arms, the implementation returns an empty list
-        expected_result = [['Epoch/Arms']]
+        # When there are no epochs and no arms, the implementation returns a default arm
+        expected_result = [['Epoch/Arms'], ['DEFAULT_ARM']]
         assert result == expected_result
 
     def test_execute_with_epochs_no_arms(self):
@@ -120,9 +120,10 @@ class TestHighLevelDesignPanel:
         result = panel.execute(mock_study)
 
         # Verify the result
-        # The implementation adds the header row for each epoch
+        # The implementation adds the header row for each epoch and a default arm
         expected_result = [
             ["Epoch/Arms", "Epoch1", "Epoch2"],
+            ["DEFAULT_ARM", "", ""],
         ]
         assert result == expected_result
 
